@@ -1,0 +1,89 @@
+{% extends "nmadb-entrance/form.html" %}
+
+{% block static-info %}
+<p>
+  Mielas mokiny,<br />
+
+  Nacionalinė moksleivių akademija (NMA) kviečia TAVE
+  registruotis bei aktyviai dalyvauti unikalioje NMA nuotolinio
+  ugdymo programos atrankoje, jeigu:
+</p>
+
+<ul>
+  <li>
+  esi 7-10 klasių mokinys iš bet kurios Lietuvos mokyklos;
+  </li>
+  <li>
+  tau patinka, domiesi ir nori daugiau sužinoti bei tobulėti
+  bent vienoje iš šių sričių: (9 – 10-okams) biochemijos,
+  informatikos, ekonomikos, istorijos, fizikos ir astronomijos,
+  (10-okams) chemijos, (7 – 9-okams) matematikos ir lietuvių
+  filologijos;
+  </li>
+  <li>
+  esi gabus, talentingas, išradingas, aktyvus, linksmas,
+  mėgstantis bendrauti bei susipažinti su naujais, įdomiais
+  žmonėmis;
+  </li>
+  <li>
+  tau tavo mokyklos koridoriai pasidarė per „siauri“;
+  </li>
+  <li>
+  turi svajonę užsiauginti sparnus bei išmokti juos plačiai
+  išskleisti ir apskrieti visą pasaulį.
+  </li>
+</ul>
+{% endblock %}
+
+{% block form-content %}
+<fieldset>
+  <ol class="form">
+      {# FIXME: Wet code. #}
+      <li>
+      {{ form.first_name.errors }}
+      {{ form.first_name.label_tag }}:
+      {{ form.first_name }}
+      </li>
+      <li>
+      {{ form.last_name.errors }}
+      {{ form.last_name.label_tag }}:
+      {{ form.last_name }}
+      </li>
+      <li>
+      {{ form.gender.errors }}
+      {{ form.gender.label_tag }}:
+      {{ form.gender }}
+      </li>
+      <li>
+      {{ form.school.errors }}
+      {{ form.school.label_tag }}:
+      {{ form.school }}
+      </li>
+      <li>
+      {{ form.school_class.errors }}
+      {{ form.school_class.label_tag }}:
+      {{ form.school_class }}
+      </li>
+      <li>
+      {{ form.email.errors }}
+      {{ form.email.label_tag }}:
+      {{ form.email }}
+      <p class="form-note">
+      <span style="color: red;">Dėmesio:</span> registracijai
+      nenaudokite one.lt ir mail.ru elektroninio pašto dėžučių,
+      nes registracijos sistemos siunčiami laiškai dažnai jų
+      nepasiekia.
+      </p>
+      </li>
+      <li>
+      {{ form.section.errors }}
+      Sekcija, kurioje norėtum mokytis NMA:
+      {{ form.section }}
+      <p class="form-note">
+        Pastaba: Galima rinktis tik vieną sekciją. (Registruotis irgi tik
+        vieną!)
+      </p>
+      </li>
+  </ol>
+</fieldset>
+{% endblock %}
