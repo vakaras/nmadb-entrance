@@ -1,9 +1,12 @@
+import os
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core import validators
 
 from django_db_utils import models as utils_models
 from nmadb_registration import models as registration_models
+from project import settings
 
 
 class BaseInfo(models.Model):
@@ -99,6 +102,10 @@ class PDFFile(models.Model):
             (u'PC', _(u'pupil form filled with computer'),),
             )
 
+    uuid = utils_models.UUIDField(
+            verbose_name=_(u'file identifier'),
+            )
+
     base_info = models.ForeignKey(
             BaseInfo,
             verbose_name=_(u'base info'),
@@ -110,16 +117,45 @@ class PDFFile(models.Model):
             verbose_name=_(u'type'),
             )
 
-    file = models.FileField(
-            upload_to=u'nmadb/entrance/pdf/',
-            verbose_name=_(u'name'),
-            )
-
     commit_timestamp = models.DateTimeField(
             verbose_name=_(u'commit timestamp'),
             auto_now_add=True,
             )
 
+    @property
+    def path(self):
+        """ Returns path to saved file.
+        """
+        return os.path.join('nmadb', 'entrance', self.uuid)
+
+    def global_path(self):
+        """ Returns global path to saved file.
+        """
+        return os.path.join(settings.MEDIA_ROOT, self.path)
+
+    def get_absolute_url(self):
+        """ Returns download link to file.
+        """
+        return settings.MEDIA_URL + self.path
+
     class Meta(object):
         verbose_name = _(u'PDF file')
         verbose_name_plural = _(u'PDF files')
+
+
+class Info(models.Model):
+    """ Registration information.
+    """
+
+    address = models.CharField(
+            max_length=255,
+            verbose_name=_(u'address'),
+            )
+
+    year = models.PositiveSmallIntegerField(
+            verbose_name=_(u'year'),
+            )
+
+    forms_send_deadline = models.DateField(
+            verbose_name=_(u'forms send deadline'),
+            )

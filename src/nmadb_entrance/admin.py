@@ -41,8 +41,10 @@ class PDFFileAdmin(utils.ModelAdmin):
 
     list_display = (
             'id',
+            'uuid',
             'base_info',
             'file_type',
+            'commit_timestamp',
             )
 
     list_filter = (
