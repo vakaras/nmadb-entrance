@@ -1,5 +1,5 @@
-Welcome to {app_name}'s documentation!
-===================================
+Welcome to nmadb-entrance's documentation!
+==========================================
 
 Contents:
 
