@@ -26,12 +26,15 @@ class BaseInfoForm(forms.ModelForm):
         return cleaned_data
 
     class Meta(object):
-        model = models.BaseInfo
-        exclude = (
-                'uuid',
-                'school_year',
-                'generated_address',
-                'commit_timestamp',
+        model = models.RegistrationInfo
+        fields = (
+                'first_name',
+                'last_name',
+                'gender',
+                'school',
+                'email',
+                'section',
+                'school_class',
                 )
 
 

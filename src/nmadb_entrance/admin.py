@@ -35,6 +35,59 @@ class BaseInfoAdmin(utils.ModelAdmin):
             )
 
 
+class RegistrationInfoAdmin(utils.ModelAdmin):
+    """ Administration for registration info.
+    """
+
+    list_display = (
+            'id',
+            'first_name',
+            'last_name',
+            'school',
+            'school_class',
+            'payed',
+            'pupil_form_received',
+            'teacher_form_received',
+            'director_form_received',
+            'marks_form_received',
+            'done',
+            'testing_location',
+            'socialy_supported',
+            )
+
+    list_filter = (
+            'section',
+            'school_class',
+            'payed',
+            'pupil_form_received',
+            'teacher_form_received',
+            'director_form_received',
+            'marks_form_received',
+            'done',
+            'testing_location',
+            'socialy_supported',
+            )
+
+    search_fields = (
+            'id',
+            'uuid',
+            'first_name',
+            'last_name',
+            'school__title',
+            )
+
+    list_editable = [
+            'payed',
+            'pupil_form_received',
+            'teacher_form_received',
+            'director_form_received',
+            'marks_form_received',
+            'done',
+            'testing_location',
+            'socialy_supported',
+            ]
+
+
 class PDFFileAdmin(utils.ModelAdmin):
     """ Administration for PDF files.
     """
@@ -60,4 +113,5 @@ class PDFFileAdmin(utils.ModelAdmin):
 
 
 admin.site.register(models.BaseInfo, BaseInfoAdmin)
+admin.site.register(models.RegistrationInfo, RegistrationInfoAdmin)
 admin.site.register(models.PDFFile, PDFFileAdmin)
