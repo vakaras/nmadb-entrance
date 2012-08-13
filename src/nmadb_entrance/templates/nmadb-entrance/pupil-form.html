@@ -1,0 +1,151 @@
+{% extends "nmadb-entrance/form.html" %}
+
+{% block static-info %}
+<p>
+    Žemiau yra pateikta internetinė forma, kurią tau užpildžius,
+    į Tavo elektroninio pašto dėžutę bus išsiųsta forma PDF
+    formatu. Ją turėsi atsispausdinti, pasirašyti bei kartu
+    su mokytojo bei vadovo
+    {% if base_info.section == "FIL" %}
+    rekomendacijomis,
+    <span style="color: red; font-weight: bold;">
+        geriausiai, Tavo nuomone, Tave atspindinčiu savo
+        kūrybos darbu
+    </span>
+    {% endif %}
+    ir {{ info.year|add:"-1" }}/{{ info.year }} mokslo metų 
+    metiniais įvertinimais atsiųsti arba atnešti į
+    {{ info.address }} iki {{ info.forms_send_deadline }}.
+</p>
+{% endblock %}
+
+{% block form-content %}
+<fieldset>
+    <legend>Bendroji informacija</legend>
+    <ol class="form">
+        {# FIXME: Wet code. #}
+        <li>
+            <span>Vardas:</span>
+            <span>{{ base_info.first_name }}</span>
+        </li>
+        <li>
+            <span>Pavardė:</span>
+            <span>{{ base_info.last_name }}</span>
+        </li>
+        <li>
+            <span>Lytis:</span>
+            <span>{{ base_info.get_gender_display }}</span>
+        </li>
+        <li>
+            <span>Elektroninio pašto adresas:</span>
+            <span>{{ base_info.email }}</span>
+        </li>
+        <li>
+            <span>Mokykla:</span>
+            <span>{{ base_info.school.title }}</span>
+        </li>
+        <li>
+            <span>Klasė:</span>
+            <span>{{ base_info.school_class }}</span>
+        </li>
+        <li>
+            <span>Sekcija:</span>
+            <span>{{ base_info.get_section_display }}</span>
+        </li>
+        {% if base_info.generated_address %}
+        <li>
+            <span>Namų adresas:</span>
+            <span>{{ base_info.generated_address }}</span>
+        </li>
+        {% else %}
+        {{ address_form.as_ul }}
+        {% endif %}
+        <li>
+        {{ pupil_form.phone_number.errors }}
+        Kontaktinis telefono numeris:
+        {{ pupil_form.phone_number }}
+        <p class="pupil_form-note">
+            Pavyzdžiui, +37052123456 arba +37061234567.
+        </p>
+        </li>
+        <li>
+        {{ pupil_form.birth_date.errors }}
+        {{ pupil_form.birth_date.label_tag }}:
+        {{ pupil_form.birth_date }}
+        <p class="pupil_form-note">
+            Pavyzdžiui, 1994-12-02.
+        </p>
+        </li>
+    </ol>
+</fieldset>
+<fieldset>
+    <p>
+        Dalyvavimas ir pasiekimai pasirinktos dalykinės
+        srities
+        (<span class="emphasize">{{ base_info.section.title }}</span>)
+        konkursuose, olimpiadose per pastaruosius trejus
+        kalendorinius metus
+        ({{ achievements_from_year }} – {{ info.year }})
+        (nurodykite užimtą
+        prizinę vietą, vietovę, datą, olimpiados/konkurso
+        pavadinimą).
+    </p>
+    <ol class="pupil_form">
+        <li>
+        {{ pupil_form.international_achievements.errors }}
+        Tarptautiniuose („Kengūros“, „Bebro“ konkursai
+        laikomi respublikiniais):
+        {{ pupil_form.international_achievements }}
+        </li>
+        <li>
+        {{ pupil_form.national_achievements.errors }}
+        Nacionaliniuose:
+        {{ pupil_form.national_achievements }}
+        </li>
+        <li>
+        {{ pupil_form.district_achievements.errors }}
+        Rajono, miesto:
+        {{ pupil_form.district_achievements }}
+        </li>
+    </ol>
+</fieldset>
+<fieldset>
+    <ol class="pupil_form">
+        <li>
+        {{ pupil_form.scholarschips.errors }}
+        Apdovanojimai pasirinktos dalykinės srities
+        (<span class="emphasize">{{ base_info.section.title }}</span>)
+        veikloje (stipendijos ir panašiai):
+        {{ pupil_form.scholarschips }}
+        </li>
+        <li>
+        {{ pupil_form.other_achievements.errors }}
+        Kita veikla ir pasiekimai (dalyvavimas ir pasiekimai
+        olimpiadose / konkursuose, kurių nenurodėte anksčiau):
+        {{ pupil_form.other_achievements }}
+        </li>
+        <li>
+        {{ pupil_form.interests.errors }}
+        Interesai, domėjimosi sritys (sportas, muzika, astronomija,
+        gamtos mokslai, literatūra ir panašiai):
+        {{ pupil_form.interests }}
+        </li>
+        <li>
+        {{ pupil_form.motivation.errors }}
+        Motyvuokite, kodėl norite dalyvauti Akademijoje bei
+        {{ section_genitive }} dalykinėje grupėje (5-10 sakinių):
+        {{ pupil_form.motivation }}
+        </li>
+        <li>
+        {{ pupil_form.future.errors }}
+        Aš po dešimties metų (5-7 sakiniai):
+        {{ pupil_form.future }}
+        </li>
+        <li>
+        {{ pupil_form.come_from.errors }}
+        Iš kur sužinojai apie Nacionalinę moksleivių akademiją?
+        {{ pupil_form.come_from }}
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "nmadb-entrance/base.html" %}
+
+{% block messages %}
+<p>
+    Į tavo elektroninio pašto dėžutę buvo išsiųstas laiškas
+    su užpildyta forma. Ją turi atsispausdinti, pasirašyti
+    bei kartu su mokytojo bei vadovo
+    {% if base_info.section.title == "Lietuvių filologija" %}
+    rekomendacijomis, geriausiai, tavo nuomone, tave atspindinčiu
+    savo kūrybos darbu
+    {% else %}
+    rekomendacijomis
+    {% endif %}
+    ir {{ info.year|add:"-1" }}/{{ info.year }} mokslo metų 
+    metiniais įvertinimais atsiųsti arba atnešti į
+    {{ info.address }} iki {{ info.forms_send_deadline }}.
+</p>
+{% endblock %}

@@ -296,7 +296,7 @@ Prašome įvertinti mokinį(-ę) pagal šiuos kriterijus
 Žemiau prašome pateikti komentarus ar pastebėjimus apie {0}
 pasiekimus, kurie, Jūsų manymu, galėtų turėti įtakos vertinant
 {1} galimybes mokytis Nacionalinės moksleivių akademijos
-sekcijoje {2}:'''
+sekcijoje <font name="Ubuntu-I">{2}</font>:'''
         ).format(
             u'mokinio' if base_info.gender == u'M' else u'mokinės',
             u'jo' if base_info.gender == u'M' else u'jos',
@@ -375,8 +375,8 @@ akademijai paprastu paštu adresu {0.address},
     children_data_table_2 = Table([
         (p(u'Mokykla:'), p(base_info.school.title)),
         (p(u'Klasė:'), p(unicode(base_info.school_class))),
-        (p(u'Sekcija:'), p(base_info.get_section_display())),
-        (p(u'Namų adresas:'), p(pupil_info.home_address)),
+        (p(u'Sekcija:'), p(base_info.section.title)),
+        (p(u'Namų adresas:'), p(base_info.generated_address)),
         (p(u'Telefono numeris:'), p(pupil_info.phone_number)),
         (p(u'Gimimo data:'),
             p(pupil_info.birth_date.strftime(u'%Y-%m-%d'))),
@@ -413,7 +413,7 @@ akademijai paprastu paštu adresu {0.address},
                 pupil_info.interests),
             ((
                 u'Motyvuokite, kodėl norite dalyvauti Akademijoje '
-                u'bei dalykinėje grupėje, {0}:').format(
+                u'bei dalykinėje grupėje {0}:').format(
                     base_info.section.title),
                 pupil_info.motivation),
             ((
@@ -437,9 +437,7 @@ akademijai paprastu paštu adresu {0.address},
         Paragraph(u'Parašas:', styles["Normal"])]],
         colWidths=(8 * units.cm, 8 * units.cm)))
 
-    render_content(
-            pupil_info.get_pdf_path(), content,
-            base_info.id, base_info.uuid)
+    render_content('PC', content, base_info)
 
 
 def generate_director_form(base_info, director_info=None):
@@ -537,7 +535,7 @@ su mokinio(-ės) {1}/{2} mokslo metų metiniais įvertinimais.</font>
 Žemiau prašome pateikti komentarus ar pastebėjimus apie {0}
 pasiekimus, kurie, Jūsų manymu, galėtų turėti įtakos vertinant
 {1} galimybes mokytis Nacionalinės moksleivių akademijos
-sekcijoje {2}:'''
+sekcijoje <font name="Ubuntu-I">{2}</font>:'''
         ).format(
             u'mokinio' if base_info.gender == u'M' else u'mokinės',
             u'jo' if base_info.gender == u'M' else u'jos',
@@ -561,13 +559,9 @@ sekcijoje {2}:'''
         Paragraph(u'Parašas:', styles["Normal"])]]))
 
     if director_info is None:
-        render_content(
-                base_info.get_director_pdf_path(), content,
-                base_info.id, base_info.uuid)
+        render_content(u'DH', content, base_info)
     else:
-        render_content(
-                director_info.get_pdf_path(), content,
-                base_info.id, base_info.uuid)
+        render_content(u'DC', content, base_info)
 
 
 def generate_teacher_filled_form(base_info, teacher_info):
@@ -612,7 +606,7 @@ def generate_teacher_filled_form(base_info, teacher_info):
 Žemiau prašome pateikti komentarus ar pastebėjimus apie {0}
 pasiekimus, kurie, Jūsų manymu, galėtų turėti įtakos vertinant
 {1} galimybes mokytis Nacionalinės moksleivių akademijos
-sekcijoje {2}:'''
+sekcijoje <font name="Ubuntu-I">{2}</font>:'''
         ).format(
             u'mokinio' if base_info.gender == u'M' else u'mokinės',
             u'jo' if base_info.gender == u'M' else u'jos',

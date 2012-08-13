@@ -90,6 +90,185 @@ class BaseInfo(models.Model):
         return u'<{0.id}> {0.first_name} {0.last_name}'.format(self)
 
 
+
+class PupilInfo(models.Model):
+    """ Information, entered by pupil.
+    """
+
+    base = models.ForeignKey(
+            BaseInfo,
+            verbose_name=_(u'base info'),
+            )
+
+    home_address = models.ForeignKey(
+            registration_models.Address,
+            verbose_name=_(u'home address'),
+            help_text=_(
+                u'Null only if base_info.generated_address is present.'),
+            blank=True,
+            null=True,
+            )
+
+    phone_number = utils_models.PhoneNumberField(
+            verbose_name=_(u'phone number'),
+            )
+
+    birth_date = models.DateField(
+            verbose_name=_(u'birth date'),
+            )
+
+    # FIXME: Normalize.
+    international_achievements = models.TextField(
+            blank=True,
+            null=True,
+            verbose_name=_(u'international achievements'),
+            )
+
+    national_achievements = models.TextField(
+            blank=True,
+            null=True,
+            verbose_name=_(u'national achievements'),
+            )
+
+    district_achievements = models.TextField(
+            blank=True,
+            null=True,
+            verbose_name=_(u'district achievements'),
+            )
+
+    scholarschips = models.TextField(
+            blank=True,
+            null=True,
+            verbose_name=_(u'scholarschips'),
+            )
+
+    other_achievements = models.TextField(
+            blank=True,
+            null=True,
+            verbose_name=_(u'other achievements'),
+            )
+
+    interests = models.TextField(
+            verbose_name=_(u'interests'),
+            )
+
+    motivation = models.TextField(
+            verbose_name=_(u'motivation'),
+            )
+
+    future = models.TextField(
+            verbose_name=_(u'future'),
+            )
+
+    come_from = models.TextField(
+            verbose_name=_(u'come from'),
+            )
+
+    commit_timestamp = models.DateTimeField(
+            verbose_name=_(u'commit timestamp'),
+            auto_now_add=True,
+            )
+
+    class Meta(object):
+        ordering = [u'base',]
+        verbose_name = _(u'pupil info')
+        verbose_name_plural = _(u'pupils infos')
+
+    def __unicode__(self):
+        return _(u'<{0.id}> base info: {0.base}').format(self)
+
+
+class TestingLocation(models.Model):
+    """ Information about location, where students will take tests.
+    """
+
+    address = models.CharField(
+            max_length=90,
+            verbose_name=_(u'address'),
+            )
+
+    time = models.DateTimeField(
+            verbose_name=_(u'time'),
+            )
+
+    comment = models.TextField(
+            verbose_name=_(u'comment'),
+            blank=True,
+            )
+
+    class Meta(object):
+        ordering = [u'time',]
+        verbose_name = _(u'testing location')
+        verbose_name_plural = _(u'testing locations')
+
+    def __unicode__(self):
+        return u'{0.address} {0.time}'.format(self)
+
+
+class RegistrationInfo(BaseInfo):
+    """ Information about state in registration process.
+    """
+
+    payed = models.BooleanField(
+            verbose_name=_(u'payed'),
+            blank=True,
+            help_text=_(u'True, if pupil have payed registration fee.'),
+            )
+
+    pupil_form_received = models.BooleanField(
+            verbose_name=_(u'pupil received'),
+            help_text=_(u'True, if pupil form was received.'),
+            blank=True,
+            )
+
+    teacher_form_received = models.BooleanField(
+            verbose_name=_(u'teacher received'),
+            help_text=_(u'True, if teacher form was received.'),
+            blank=True,
+            )
+
+    director_form_received = models.BooleanField(
+            verbose_name=_(u'director received'),
+            help_text=_(u'True, if director form was received.'),
+            blank=True,
+            )
+
+    marks_form_received  = models.BooleanField(
+            verbose_name=_(u'marks received'),
+            help_text=_(u'True, if pupil marks form were received.'),
+            blank=True,
+            )
+
+    comment = models.TextField(
+            verbose_name=_(u'comment'),
+            blank=True,
+            )
+
+    done  = models.BooleanField(
+            verbose_name=_(u'done'),
+            blank=True,
+            )
+
+    testing_location = models.ForeignKey(
+            TestingLocation,
+            related_name='registration_info',
+            verbose_name=_(u'Testing location'),
+            blank=True,
+            null=True,
+            )
+
+    socialy_supported = models.NullBooleanField(
+            verbose_name=_(u'socially supported'),
+            )
+
+    class Meta(object):
+        verbose_name = _(u'Registration info')
+        verbose_name_plural = _(u'Registration infos')
+
+    def __unicode__(self):
+        return u'{0.base}'.format(self)
+
+
 class PDFFile(models.Model):
     """ Forms filled and unfilled as PDF files.
     """
@@ -141,6 +320,7 @@ class PDFFile(models.Model):
     class Meta(object):
         verbose_name = _(u'PDF file')
         verbose_name_plural = _(u'PDF files')
+        unique_together = (('base_info', 'file_type'),)
 
 
 class Info(models.Model):
@@ -158,4 +338,48 @@ class Info(models.Model):
 
     forms_send_deadline = models.DateField(
             verbose_name=_(u'forms send deadline'),
+            )
+
+    manager_name_dative = models.CharField(
+            max_length=128,
+            verbose_name=_(u'manager name dative'),
+            )
+
+    manager_email = models.EmailField(
+            verbose_name=_(u'administrator email'),
+            )
+
+    manager_phone = utils_models.PhoneNumberField(
+            verbose_name=_(u'manager phone'),
+            )
+
+    admin_email = models.EmailField(
+            verbose_name=_(u'administrator email'),
+            )
+
+    pupil_form_deadline = models.DateField(
+            verbose_name=_(u'pupil form deadline'),
+            )
+
+    entrance_fee = models.PositiveSmallIntegerField(
+            verbose_name=_(u'entrance fee'),
+            )
+
+    firm_title = models.CharField(
+            max_length=255,
+            verbose_name=_(u'firm title'),
+            )
+
+    firm_code = models.CharField(
+            max_length=255,
+            verbose_name=_(u'firm title'),
+            )
+
+    bank_account = models.CharField(
+            max_length=255,
+            verbose_name=_(u'firm title'),
+            )
+
+    success_notification_deadline = models.DateField(
+            verbose_name=_(u'success notification deadline'),
             )

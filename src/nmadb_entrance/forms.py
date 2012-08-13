@@ -33,3 +33,16 @@ class BaseInfoForm(forms.ModelForm):
                 'generated_address',
                 'commit_timestamp',
                 )
+
+
+class PupilInfoForm(forms.ModelForm):
+    """ Form for pupil.
+    """
+
+    class Meta(object):
+        model = models.PupilInfo
+        exclude = (
+                'base',
+                'commit_timestamp',
+                'home_address',
+                )

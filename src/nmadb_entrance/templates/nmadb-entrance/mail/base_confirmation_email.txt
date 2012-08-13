@@ -1,0 +1,69 @@
+{% comment %} vim: ft=htmldjango
+{% endcomment %}
+Mielas mokiny,
+
+džiaugiamės, kad nori prisijungti prie gausios NMA bendruomenės ir
+tobulėti bei išmokti dar daugiau!
+
+Žemiau rasi tris nuorodas bei prisegtas dvi formas:
+
+1.  Nuoroda į Tavo prašymo formą, kurią turi iki {{ info.pupil_form_deadline }}
+    užpildyti elektroniniu būdu ir atsispausdinti, pasirašyti.
+
+2.  Nuorodą į mokytojo rekomendacijos formą bei prisegtą formą pildimui
+    ranka. Gali arba persiųsti nuorodą mokytojui, kad jis užpildytų
+    formą elektroniniu būdu, arba atspausdinti prisegtą formą ir ją
+    nunešti užpildyti mokytojui. Geriausiai būtų to dalyko mokytojui, į
+    kurią sekciją norėtum stoti.
+
+3.  Nuorodą į mokyklos vadovo rekomendaciją bei prisegtą formą pildimui
+    ranka. Kaip ir mokytojo atveju, gali arba persiųsti nuorodą
+    vadovui, arba nunešti jam atspausdintą variantą.
+
+4.  Visus keturis dokumentus (prašymą, mokytojo ir mokyklos vadovo 
+    rekomendacijas, {{ info.year|add:"-1" }}/{{ info.year }} mokslo metų metinius
+{% if base_info.section.title == "Lietuvių filologija" %}    įvertinimus) su parašais bei tavo nuomone geriausiai tave atspindintį
+    darbą iki {{ info.forms_send_deadline }} turi atsiųsti arba atnešti adresu:
+    {% else %}    įvertinimus) su parašais iki {{ info.forms_send_deadline }} turi atsiųsti arba
+    atnešti adresu:
+{% endif %}
+
+    Gedimino pr. 9
+    3 aukštas, NVO Avilys
+    01103 Vilnius
+
+5.  Taip pat iki {{ info.pupil_form_deadline }} nepamiršk sumokėti {{ info.entrance_fee }} registracijos 
+    mokesčio:
+    
+    {{ info.firm_title }}
+    {{ info.firm_code }}
+    {{ info.bank_account }}
+    Įmoka už: {{ base_info.first_name }}, {{ base_info.last_name }} registracijos mokestis
+
+    Jei esi iš socialiai remtinos šeimos, tai turi būti pažymėta mokyklos 
+    vadovo rekomendacijoje. Tuomet mokesčio mokėti nereikia.
+
+6.  {{ info.success_notification_deadline|capfirst }} sulauksi el. laiško, ar patekai į antrą atrankos etapą ir
+    visą kitą reikalingą informaciją.
+
+Nuoroda į Tavo anketos formą:
+http://{{ current_site }}{% url nmadb-entrance-add-pupil-info base_info.uuid %}
+
+    {% comment %}
+Nuoroda į mokytojo rekomendacijos formą: 
+http://{{ current_site }}{% url nma-entrance-add-teacher-info base_info.uuid %}
+
+Nuoroda į direktoriaus rekomendacijos formą:
+http://{{ current_site }}{% url nma-entrance-add-director-info base_info.uuid %}
+    {% endcomment %}
+
+Iki greito,
+NMA komanda
+
+P. S. Jei kils neaiškumų, arba norėsi paklausti, būtinai rašyk
+{{ info.manager_name_dative }} el. pašto adresu {{ info.manager_email }} 
+arba skambink {{ info.manager_phone }}.
+
+Taip pat, jei pastebėsi registracijos sistemos klaidą, būtume
+dėkingi, jei apie ją kuo skubiau praneštum elektroninio pašto adresu
+{{ info.admin_email }}. Ačiū.
