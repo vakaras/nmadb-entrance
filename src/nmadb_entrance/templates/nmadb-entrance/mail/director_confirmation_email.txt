@@ -1,0 +1,15 @@
+{% extends "nmadb-entrance/mail/base_formal_email.txt" %}
+
+{% block content %}
+Labas diena,
+
+siunčiame anketą, kurią turite atsispausdinti, pasirašyti bei
+perduoti mokiniui(-ei), kad ji(s) ją kartu su kitais dokumentais
+atsiųstų mums.
+
+Taip pat prašome pridėti išrašą su mokinio(-ės) {{ info.year|add:"-1" }}/{{ info.year }}
+mokslo metų metiniais įvertinimais.
+
+Pagarbiai,
+NMA komanda
+{% endblock %}

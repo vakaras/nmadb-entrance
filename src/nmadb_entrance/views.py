@@ -89,7 +89,7 @@ def add_pupil_info(request, uuid):
                 pupil_info.save()
                 pdf.generate_pupil_filled_form(base_info, pupil_info)
                 notify.send_filled_pupil_form(base_info, pupil_info)
-                #notify.send_if_all(base_info)
+                notify.send_if_all(base_info)
                 return shortcuts.redirect(
                         'nmadb-entrance-add-pupil-info', uuid)
             else:
@@ -110,7 +110,7 @@ def add_pupil_info(request, uuid):
                 base_info.save()
                 pdf.generate_pupil_filled_form(base_info, pupil_info)
                 notify.send_filled_pupil_form(base_info, pupil_info)
-                #notify.send_if_all(base_info)
+                notify.send_if_all(base_info)
                 return shortcuts.redirect(
                         'nmadb-entrance-add-pupil-info', uuid)
             else:
@@ -126,4 +126,101 @@ def add_pupil_info(request, uuid):
             'form_errors': form_errors,
             'base_info': base_info,
             'achievements_from_year': info.year - 2,
+            }
+
+
+@render_to('nmadb-entrance/teacher-form.html')
+@transaction.commit_on_success
+def add_teacher_info(request, uuid):
+    """ Shows form for teacher.
+    """
+
+    base_info = shortcuts.get_object_or_404(models.BaseInfo, uuid=uuid)
+
+    try:
+        base_info.teacherinfo_set.get()
+    except models.TeacherInfo.DoesNotExist:
+        pass
+    else:
+        return direct_to_template(
+                request,
+                template='nmadb-entrance/teacher-form-filled.html',
+                extra_context={
+                    'base_info': base_info,
+                    'info': info,
+                    }
+                )
+
+
+    form_errors = False
+
+    if request.method == 'POST':
+        form = forms.TeacherInfoForm(request.POST)
+        if form.is_valid():
+            teacher_info = form.save(commit=False)
+            teacher_info.base = base_info
+            teacher_info.save()
+            pdf.generate_teacher_filled_form(base_info, teacher_info)
+            notify.send_filled_teacher_form(base_info, teacher_info)
+            notify.send_if_all(base_info)
+            return shortcuts.redirect(
+                    'nmadb-entrance-add-teacher-info', uuid)
+        else:
+            form_errors = True
+    else:
+        form = forms.TeacherInfoForm()
+
+    return {
+            'info': info,
+            'form': form,
+            'form_errors': form_errors,
+            'base_info': base_info,
+            }
+
+
+@render_to('nmadb-entrance/director-form.html')
+@transaction.commit_on_success
+def add_director_info(request, uuid):
+    """ Shows form for director.
+    """
+
+    base_info = shortcuts.get_object_or_404(models.BaseInfo, uuid=uuid)
+
+    try:
+        base_info.directorinfo_set.get()
+    except models.DirectorInfo.DoesNotExist:
+        pass
+    else:
+        return direct_to_template(
+                request,
+                template='nmadb-entrance/director-form-filled.html',
+                extra_context={
+                    'base_info': base_info,
+                    'info': info,
+                    }
+                )
+
+    form_errors = False
+
+    if request.method == 'POST':
+        form = forms.DirectorInfoForm(request.POST)
+        if form.is_valid():
+            director_info = form.save(commit=False)
+            director_info.base = base_info
+            director_info.save()
+            pdf.generate_director_form(base_info, director_info)
+            notify.send_filled_director_form(base_info, director_info)
+            notify.send_if_all(base_info)
+            return shortcuts.redirect(
+                    'nmadb-entrance-add-director-info', uuid)
+        else:
+            form_errors = True
+    else:
+        form = forms.DirectorInfoForm()
+
+    return {
+            'info': info,
+            'form': form,
+            'form_errors': form_errors,
+            'base_info': base_info,
             }

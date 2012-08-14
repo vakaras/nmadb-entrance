@@ -15,6 +15,7 @@ from django.utils.encoding import smart_str
 
 from nmadb_entrance.config import info
 from nmadb_entrance import models
+from nmadb_registration.conditions import check_condition
 
 
 def attach_file(email, base_info, file_type):
@@ -27,8 +28,8 @@ def attach_file(email, base_info, file_type):
     filename = dict((
             (u'TH', _(u'for_teacher'),),
             (u'DH', _(u'for_director'),),
-            #(u'TC', _(u'teacher form filled with computer'),),
-            #(u'DC', _(u'director form filled with computer'),),
+            (u'TC', _(u'teacher-form'),),
+            (u'DC', _(u'director-form'),),
             (u'PC', _(u'pupil-form'),),
             ))[file_type]
     email.attach(filename + u'.pdf', data)
@@ -141,18 +142,18 @@ def send_filled_teacher_form(base_info, teacher_info):
 
     email = mail.EmailMessage((
         u'[{0} metų NMA atranka] {1.first_name} {1.last_name}, '
-        u'mokytojo rekomendacija').format(INFO['year'], base_info))
+        u'mokytojo rekomendacija').format(info.year, base_info))
 
-    email.body = get_template('teacher_confirmation_email.txt').render(
+    email.body = get_template(
+            'nmadb-entrance/mail/teacher_confirmation_email.txt').render(
             Context({
-                'info': INFO,
+                'info': info,
                 'base_info': base_info,
                 }))
-    email.from_email = INFO['admin_email']
+    email.from_email = info.admin_email
     email.to = [teacher_info.email]
 
-    with open(teacher_info.get_pdf_path()) as pdf_file:
-        email.attach('mokytojo-rekomendacija.pdf', pdf_file.read())
+    attach_file(email, base_info, u'TC')
 
     email.send()
 
@@ -163,18 +164,18 @@ def send_filled_director_form(base_info, director_info):
 
     email = mail.EmailMessage((
         u'[{0} metų NMA atranka] {1.first_name} {1.last_name}, '
-        u'direktoriaus rekomendacija').format(INFO['year'], base_info))
+        u'direktoriaus rekomendacija').format(info.year, base_info))
 
-    email.body = get_template('director_confirmation_email.txt').render(
+    email.body = get_template(
+            'nmadb-entrance/mail/director_confirmation_email.txt').render(
             Context({
-                'info': INFO,
+                'info': info,
                 'base_info': base_info,
                 }))
-    email.from_email = INFO['admin_email']
+    email.from_email = info.admin_email
     email.to = [director_info.email]
 
-    with open(director_info.get_pdf_path()) as pdf_file:
-        email.attach('direktoriaus-rekomendacija.pdf', pdf_file.read())
+    attach_file(email, base_info, u'DC')
 
     email.send()
 
@@ -186,66 +187,64 @@ def send_if_all(base_info):
 
     try:
         pupil_info = base_info.pupilinfo_set.get()
-        teacher_info = base_info.teacher_info
-        director_info = base_info.director_info
+        teacher_info = base_info.teacherinfo_set.get()
+        director_info = base_info.directorinfo_set.get()
     except (models.PupilInfo.DoesNotExist,
             models.TeacherInfo.DoesNotExist,
             models.DirectorInfo.DoesNotExist):
         return
 
-    email = mail.EmailMessage((
-        u'[{0} metų NMA atranka] '
-        u'{1.first_name} {1.last_name} baigta registracija').format(
-            INFO['year'],
-            base_info))
+    if check_condition(u'pupil-notify-done'):
 
-    email.body = get_template('registration_finished_admin.txt').render(
-            Context({
-                'base_info': base_info,
-                'info': INFO,
-                'current_site': Site.objects.get_current(),
-                }))
+        email = mail.EmailMessage((
+            u'[{0} metų NMA atranka] '
+            u'{1.first_name} {1.last_name} baigta registracija').format(
+                info.year,
+                base_info))
 
-    email.from_email = INFO['admin_email']
-    email.to = [INFO['manager_email_second']]
+        email.body = get_template(
+                'nmadb-entrance/mail/registration_finished_pupil.txt'
+                ).render(
+                Context({
+                    'base_info': base_info,
+                    'info': info,
+                    'current_site': Site.objects.get_current(),
+                    }))
 
-    with open(pupil_info.get_pdf_path(), 'rb') as pdf_file:
-        email.attach('mokinio.pdf', pdf_file.read())
+        email.from_email = info.admin_email
+        email.to = [base_info.email]
 
-    with open(teacher_info.get_pdf_path(), 'rb') as pdf_file:
-        email.attach('mokytojo.pdf', pdf_file.read())
+        attach_file(email, base_info, u'TC')
+        attach_file(email, base_info, u'DC')
+        attach_file(email, base_info, u'PC')
 
-    with open(director_info.get_pdf_path(), 'rb') as pdf_file:
-        email.attach('direktoriaus.pdf', pdf_file.read())
+        email.send()
 
-    email.send()
+    if check_condition(u'admin-notify-done'):
 
-    email = mail.EmailMessage((
-        u'[{0} metų NMA atranka] '
-        u'{1.first_name} {1.last_name} baigta registracija').format(
-            INFO['year'],
-            base_info))
+        email = mail.EmailMessage((
+            u'[{0} metų NMA atranka] '
+            u'{1.first_name} {1.last_name} baigta registracija').format(
+                info.year,
+                base_info))
 
-    email.body = get_template('registration_finished_pupil.txt').render(
-            Context({
-                'base_info': base_info,
-                'info': INFO,
-                'current_site': Site.objects.get_current(),
-                }))
+        email.body = get_template(
+                'nmadb-entrance/mail/registration_finished_admin.txt'
+                ).render(
+                Context({
+                    'base_info': base_info,
+                    'info': info,
+                    'current_site': Site.objects.get_current(),
+                    }))
 
-    email.from_email = INFO['admin_email']
-    email.to = [base_info.email]
+        email.from_email = info.admin_email
+        email.to = [info.manager_email]
 
-    with open(pupil_info.get_pdf_path(), 'rb') as pdf_file:
-        email.attach('mokinio.pdf', pdf_file.read())
+        attach_file(email, base_info, u'TC')
+        attach_file(email, base_info, u'DC')
+        attach_file(email, base_info, u'PC')
 
-    with open(teacher_info.get_pdf_path(), 'rb') as pdf_file:
-        email.attach('mokytojo.pdf', pdf_file.read())
-
-    with open(director_info.get_pdf_path(), 'rb') as pdf_file:
-        email.attach('direktoriaus.pdf', pdf_file.read())
-
-    email.send()
+        email.send()
 
 
 def send_mass_mail(

@@ -1,0 +1,5 @@
+{% comment %} vim: ft=htmldjango
+{% endcomment %}
+{% block header %}{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}

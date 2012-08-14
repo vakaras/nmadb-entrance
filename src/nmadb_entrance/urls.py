@@ -16,4 +16,18 @@ urlpatterns = patterns(
         r')/$'
         ),
         'add_pupil_info', name='nmadb-entrance-add-pupil-info'),
+    url((
+        r'teacher/'
+        r'(?P<uuid>'
+        r'[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}'
+        r')/$'
+        ),
+        'add_teacher_info', name='nmadb-entrance-add-teacher-info'),
+    url((
+        r'director/'
+        r'(?P<uuid>'
+        r'[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}'
+        r')/$'
+        ),
+        'add_director_info', name='nmadb-entrance-add-director-info'),
     )

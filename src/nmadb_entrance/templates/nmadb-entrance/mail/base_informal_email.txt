@@ -1,0 +1,11 @@
+{% extends "nmadb-entrance/mail/base_email.txt" %}
+
+{% block footer %}
+P. S. Jei kils neaiškumų, arba norėsi paklausti, būtinai rašyk
+{{ info.manager_name_dative }} el. pašto adresu {{ info.manager_email }} 
+arba skambink {{ info.manager_phone }}.
+
+Taip pat, jei pastebėsi registracijos sistemos klaidą, būtume
+dėkingi, jei apie ją kuo skubiau praneštum elektroninio pašto adresu
+{{ info.admin_email }}. Ačiū.
+{% endblock %}

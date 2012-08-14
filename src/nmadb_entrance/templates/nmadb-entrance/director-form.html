@@ -1,0 +1,75 @@
+{% extends "nmadb-entrance/form.html" %}
+
+
+{% block form-content %}
+<p>
+    Rekomenduojamas mokinys:
+    {{ base_info.first_name }} {{ base_info.last_name }}.
+</p>
+<p>
+    Mokykla: {{ base_info.school.title }}
+</p>
+{{ form.non_field_errors }}
+<fieldset>
+    <legend>Informacija apie rekomendaciją rašantį asmenį</legend>
+    <ol class="form">
+        <li>
+        {{ form.first_name.errors }}
+        {{ form.first_name.label_tag }}:
+        {{ form.first_name }}
+        </li>
+        <li>
+        {{ form.last_name.errors }}
+        {{ form.last_name.label_tag }}:
+        {{ form.last_name }}
+        </li>
+        <li>
+        {{ form.address.errors }}
+        {{ form.address.label_tag }}:
+        {{ form.address }}
+        </li>
+        <li>
+        {{ form.phone_number.errors }}
+        Kontaktinio telefono numeris:
+        {{ form.phone_number }}
+        <p class="form-note">
+            Pavyzdžiui, +37052123456 arba +37061234567.
+        </p>
+        </li>
+        <li>
+        {{ form.email.errors }}
+        {{ form.email.label_tag }}:
+        {{ form.email }}
+        </li>
+    </ol>
+</fieldset>
+<fieldset>
+    <ol class="form">
+        <li>
+        {{ form.study_years.errors }}
+        Kiek metų mokinys(-ė) mokosi šioje mokykloje?
+        {{ form.study_years }}
+        </li>
+        <li>
+        {{ form.social.errors }}
+        Ar mokinio(-ės) šeima yra socialiai remtina?
+        {{ form.social }}
+        </li>
+    </ol>
+</fieldset>
+<fieldset>
+    <p>
+        Prašome pateikti komentarus ar pastebėjimus apie
+        mokinio(-ės) pasiekimus, kurie, Jūsų manymu, galėtų
+        turėti įtakos vertinant jo(s) galimybes mokytis
+        Nacionalinėje moksleivių akademijoje, sekcijoje
+        {{ base_info.section.title }}:
+    </p>
+    <ol class="form">
+        <li>
+        {{ form.comment.errors }}
+        {{ form.comment }}
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

@@ -49,3 +49,44 @@ class PupilInfoForm(forms.ModelForm):
                 'commit_timestamp',
                 'home_address',
                 )
+
+
+class TeacherInfoForm(forms.ModelForm):
+    """ Form for teacher.
+    """
+
+    def clean(self):
+        """ Checks if at least one of ``form_master``,
+        ``subject_teacher`` and ``other_relation`` is set.
+        """
+
+        cleaned_data = super(TeacherInfoForm, self).clean()
+
+        if not (cleaned_data['class_master'] or
+                cleaned_data['subject_teacher'] or
+                cleaned_data['other_relation']):
+            raise forms.ValidationError(
+                    _(u'You have to specify Your relation with pupil.'))
+
+        return cleaned_data
+
+    class Meta(object):
+        model = models.TeacherInfo
+        exclude = ('base', 'commit_timestamp',)
+
+
+class DirectorInfoForm(forms.ModelForm):
+    """ Form for director.
+    """
+
+    social = forms.BooleanField(
+            widget=forms.Select(choices=(
+                (True, _(u'Yes')),
+                (False, _(u'No')),
+                )),
+            required=False,
+            )
+
+    class Meta(object):
+        model = models.DirectorInfo
+        exclude = ('base', 'commit_timestamp',)

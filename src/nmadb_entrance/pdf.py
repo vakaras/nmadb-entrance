@@ -217,7 +217,7 @@ Informacija apie rekomendaciją parašiusį asmenį:'''
             ])
     else:
         relationships = []
-        if teacher_info.form_master:
+        if teacher_info.class_master:
             relationships.append(u'klasės auklėtojas')
         if teacher_info.subject_teacher:
             relationships.append(
@@ -624,6 +624,4 @@ sekcijoje <font name="Ubuntu-I">{2}</font>:'''
         Paragraph(u'Data:', styles["Normal"]),
         Paragraph(u'Parašas:', styles["Normal"])]]))
 
-    render_content(
-            teacher_info.get_pdf_path(), content,
-            base_info.id, base_info.uuid)
+    render_content(u'TC', content, base_info)

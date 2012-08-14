@@ -1,0 +1,140 @@
+{% extends "nmadb-entrance/form.html" %}
+
+{% block form-content %}
+<p>
+    Rekomenduojamas mokinys:
+    {{ base_info.first_name }} {{ base_info.last_name }}.
+</p>
+<p>
+    Mokykla: {{ base_info.school.title }}
+</p>
+{{ form.non_field_errors }}
+<fieldset>
+    <legend>Informacija apie rekomendaciją rašantį asmenį</legend>
+    <ol class="form">
+        <li>
+        {{ form.first_name.errors }}
+        {{ form.first_name.label_tag }}:
+        {{ form.first_name }}
+        </li>
+        <li>
+        {{ form.last_name.errors }}
+        {{ form.last_name.label_tag }}:
+        {{ form.last_name }}
+        </li>
+        <li>
+        {{ form.address.errors }}
+        {{ form.address.label_tag }}:
+        {{ form.address }}
+        </li>
+        <li>
+        {{ form.phone_number.errors }}
+        Kontaktinio telefono numeris:
+        {{ form.phone_number }}
+        <p class="form-note">
+            Pavyzdžiui, +37052123456 arba +37061234567.
+        </p>
+        </li>
+        <li>
+        {{ form.email.errors }}
+        {{ form.email.label_tag }}:
+        {{ form.email }}
+        </li>
+        <li>
+        {{ form.qualification.errors }}
+        Išsilavinimas, kvalifikacinė kategorija, mokslo, 
+        pedagoginiai vardai:
+        {{ form.qualification }}
+        </li>
+    </ol>
+</fieldset>
+<fieldset>
+    <p>Nurodykite savo ryšį su mokiniu:</p>
+    <ol class="form">
+        <li>
+        {{ form.class_master.errors }}
+        {{ form.class_master }} 
+        Esate jo klasės vadovas(-ė) / auklėtoja(s).
+        </li>
+        <li>
+        {{ form.subject_teacher.errors }}
+        Jei esate mokinio mokytojas, tai kokio dalyko:
+        {{ form.subject_teacher }}
+        </li>
+        <li>
+        {{ form.other_relation.errors }}
+        {{ form.other_relation.label_tag }}:
+        {{ form.other_relation }}
+        </li>
+    </ol>
+</fieldset>
+<fieldset>
+    <ol class="form">
+        <li>
+        {{ form.years.errors }}
+        Kiek metų pažįstate mokinį(-ę):
+        {{ form.years }}
+        </li>
+    </ol>
+</fieldset>
+<fieldset>
+    <p>Prašome įvertinti mokinį pagal šiuos kriterijus:</p>
+    <ol class="form">
+        <li>
+        {{ form.systemic_thinking_ability.errors }}
+        {{ form.systemic_thinking_ability.label_tag }}:
+        {{ form.systemic_thinking_ability }}
+        </li>
+        <li>
+        {{ form.analytical_thinking_ability.errors }}
+        {{ form.analytical_thinking_ability.label_tag }}:
+        {{ form.analytical_thinking_ability }}
+        </li>
+        <li>
+        {{ form.deductive_thinking_ability.errors }}
+        {{ form.deductive_thinking_ability.label_tag }}:
+        {{ form.deductive_thinking_ability }}
+        </li>
+        <li>
+        {{ form.self_studying_ability.errors }}
+        {{ form.self_studying_ability.label_tag }}:
+        {{ form.self_studying_ability }}
+        </li>
+        <li>
+        {{ form.team_working_ability.errors }}
+        {{ form.team_working_ability.label_tag }}:
+        {{ form.team_working_ability }}
+        </li>
+        <li>
+        {{ form.oral_expression_ability.errors }}
+        {{ form.oral_expression_ability.label_tag }}:
+        {{ form.oral_expression_ability }}
+        </li>
+        <li>
+        {{ form.written_expression_ability.errors }}
+        {{ form.written_expression_ability.label_tag }}:
+        {{ form.written_expression_ability }}
+        </li>
+        <li>
+        {{ form.receptivity_ability.errors }}
+        {{ form.receptivity_ability.label_tag }}:
+        {{ form.receptivity_ability }}
+        </li>
+    </ol>
+</fieldset>
+<fieldset>
+    <p>
+        Prašome pateikti komentarus ar pastebėjimus apie
+        mokinio(-ės) pasiekimus, kurie, Jūsų manymu, galėtų
+        turėti įtakos vertinant jo(s) galimybes mokytis
+        Nacionalinėje moksleivių akademijoje sekcijoje
+        {{ base_info.section.title }}:
+    </p>
+    <ol class="form">
+        <li>
+        {{ form.comment.errors }}
+        {{ form.comment }}
+        </li>
+    </ol>
+</fieldset>
+{% endblock %}

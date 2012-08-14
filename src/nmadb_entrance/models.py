@@ -178,6 +178,189 @@ class PupilInfo(models.Model):
         return _(u'<{0.id}> base info: {0.base}').format(self)
 
 
+class TeacherInfo(models.Model):
+    """ Information, entered by teacher.
+    """
+
+    ABILITY_CHOICES = (
+            (1, u'Excellent'),
+            (2, u'Very good'),
+            (3, u'Good'),
+            (4, u'Enough'),
+            (5, u'Satisfactory'),
+            (6, u'Weak'),
+            (7, u'It was not possible to evaluate'),
+            )
+
+    base = models.ForeignKey(
+            BaseInfo,
+            verbose_name=_(u'base info'),
+            )
+
+    first_name = utils_models.FirstNameField(
+            verbose_name=_(u'first name'),
+            )
+
+    last_name = utils_models.LastNameField(
+            verbose_name=_(u'last name'),
+            )
+
+    address = models.CharField(
+            max_length=90,
+            verbose_name=_(u'contact address'),
+            )
+
+    phone_number = utils_models.PhoneNumberField(
+            verbose_name=_(u'contact phone'),
+            )
+
+    email = models.EmailField(
+            max_length=128,
+            verbose_name=_(u'email address'),
+            )
+
+    qualification = models.CharField(
+            max_length=255,
+            verbose_name=_(u'qualification'),
+            blank=True,
+            )
+
+    class_master = models.BooleanField(
+            verbose_name=_(u'class master'),
+            blank=True,
+            )
+
+    subject_teacher = models.CharField(
+            max_length=32,
+            verbose_name=_('subject teacher'),
+            blank=True,
+            )
+
+    other_relation = models.CharField(
+            max_length=32,
+            verbose_name=_('other'),
+            blank=True,
+            )
+
+    years = models.PositiveSmallIntegerField(
+            verbose_name=_(u'know years'),
+            )
+
+    systemic_thinking_ability = models.IntegerField(
+            choices=ABILITY_CHOICES,
+            verbose_name=_(u'systemic thinking ability'),
+            )
+
+    analytical_thinking_ability = models.IntegerField(
+            choices=ABILITY_CHOICES,
+            verbose_name=_(u'analytical thinking ability'),
+            )
+
+    deductive_thinking_ability = models.IntegerField(
+            choices=ABILITY_CHOICES,
+            verbose_name=_(u'deductive thinking ability'),
+            )
+
+    self_studying_ability = models.IntegerField(
+            choices=ABILITY_CHOICES,
+            verbose_name=_(u'self studying ability'),
+            )
+
+    team_working_ability = models.IntegerField(
+            choices=ABILITY_CHOICES,
+            verbose_name=_(u'team working ability'),
+            )
+
+    oral_expression_ability = models.IntegerField(
+            choices=ABILITY_CHOICES,
+            verbose_name=_(u'oral expression ability'),
+            )
+
+    written_expression_ability = models.IntegerField(
+            choices=ABILITY_CHOICES,
+            verbose_name=_(u'written expression ability'),
+            )
+
+    receptivity_ability = models.IntegerField(
+            choices=ABILITY_CHOICES,
+            verbose_name=_(u'receptivity ability'),
+            )
+
+    comment = models.TextField(
+            verbose_name=_(u'comment'),
+            )
+
+    commit_timestamp = models.DateTimeField(
+            verbose_name=_(u'commit timestamp'),
+            auto_now_add=True,
+            )
+
+    class Meta(object):
+        ordering = [u'base',]
+        verbose_name = _(u'teacher form')
+        verbose_name_plural = _(u'teachers forms')
+
+    def __unicode__(self):
+        return _(u'<{0.id}> base info: {0.base}').format(self)
+
+
+class DirectorInfo(models.Model):
+    """ Information, entered by director.
+    """
+
+    base = models.ForeignKey(
+            BaseInfo,
+            verbose_name=_(u'base info'),
+            )
+
+    first_name = utils_models.FirstNameField(
+            verbose_name=_(u'first name'),
+            )
+
+    last_name = utils_models.LastNameField(
+            verbose_name=_(u'last name'),
+            )
+
+    address = models.CharField(
+            max_length=90,
+            verbose_name=_(u'contact address'),
+            )
+
+    phone_number = utils_models.PhoneNumberField(
+            verbose_name=_(u'contact phone'),
+            )
+
+    email = models.EmailField(
+            max_length=128,
+            verbose_name=_(u'email address'),
+            )
+
+    study_years = models.PositiveSmallIntegerField(
+            verbose_name=_(u'pupil study in school years'),
+            )
+
+    social = models.BooleanField(
+            verbose_name=_(u'socially supported'),
+            )
+
+    comment = models.TextField(
+            verbose_name=_(u'comment'),
+            )
+
+    commit_timestamp = models.DateTimeField(
+            verbose_name=_(u'commit timestamp'),
+            auto_now_add=True,
+            )
+
+    class Meta(object):
+        ordering = [u'base',]
+        verbose_name = _(u'director form')
+        verbose_name_plural = _(u'directors forms')
+
+    def __unicode__(self):
+        return _(u'<{0.id}> base info: {0.base}').format(self)
+
+
 class TestingLocation(models.Model):
     """ Information about location, where students will take tests.
     """
