@@ -1,0 +1,17 @@
+{% extends "nmadb-entrance/mail/base_email.txt" %}
+
+{% block content %}
+Labas,
+mokinys užpildė visas anketas. Jo duomenys:
+
+Vardas: {{ base_info.first_name }}
+Pavardė: {{ base_info.last_name }}
+Mokykla: {{ base_info.school.title }}
+Elektroninio pašto adresas: {{ base_info.email }}
+Sekcija: {{ base_info.get_section_display }}
+UUID: {{ base_info.uuid }}
+
+Anketos prisegtos.
+
+Pagarbiai, pašto robotas
+{% endblock %}

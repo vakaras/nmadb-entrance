@@ -1,0 +1,17 @@
+{% extends "nmadb-entrance/mail/base_informal_email.txt" %}
+
+{% block content %}
+Labas,
+
+sveikinu užpildžius visas anketas.
+
+Dar kartą siunčiu visas užpildytas anketas, kurias turi su parašais
+atsiųsti arba atnešti adresu {{ info.address }}
+iki {{ info.forms_send_deadline }}.
+
+Mokyklos vadovas bei mokytojas, užpildę Tavo rekomendacijas el.
+būdu, gavo jas į savo el. pašto dėžutes.
+
+Iki greito,
+NMA komanda
+{% endblock %}
