@@ -529,7 +529,7 @@ class Info(models.Model):
             )
 
     manager_email = models.EmailField(
-            verbose_name=_(u'administrator email'),
+            verbose_name=_(u'manager email'),
             )
 
     manager_phone = utils_models.PhoneNumberField(
@@ -555,14 +555,18 @@ class Info(models.Model):
 
     firm_code = models.CharField(
             max_length=255,
-            verbose_name=_(u'firm title'),
+            verbose_name=_(u'firm code'),
             )
 
     bank_account = models.CharField(
             max_length=255,
-            verbose_name=_(u'firm title'),
+            verbose_name=_(u'bank account'),
             )
 
     success_notification_deadline = models.DateField(
             verbose_name=_(u'success notification deadline'),
             )
+
+    class Meta(object):
+        verbose_name = _(u'registration information')
+        verbose_name_plural = _(u'registration informations')

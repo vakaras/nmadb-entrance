@@ -113,5 +113,10 @@ class PDFFileAdmin(utils.ModelAdmin):
 
 
 admin.site.register(models.BaseInfo, BaseInfoAdmin)
+admin.site.register(models.PupilInfo)
+admin.site.register(models.TeacherInfo)
+admin.site.register(models.DirectorInfo)
+admin.site.register(models.TestingLocation)
 admin.site.register(models.RegistrationInfo, RegistrationInfoAdmin)
 admin.site.register(models.PDFFile, PDFFileAdmin)
+admin.site.register(models.Info)
