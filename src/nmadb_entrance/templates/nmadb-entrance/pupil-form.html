@@ -2,20 +2,23 @@
 
 {% block static-info %}
 <p>
-    Žemiau yra pateikta internetinė forma, kurią tau užpildžius,
+    Žemiau yra pateikta internetinė forma, kurią Tau užpildžius,
     į Tavo elektroninio pašto dėžutę bus išsiųsta forma PDF
     formatu. Ją turėsi atsispausdinti, pasirašyti bei kartu
     su mokytojo bei vadovo
-    {% if base_info.section == "FIL" %}
+    {% if base_info.section.title == "Lietuvių filologija" %}
     rekomendacijomis,
     <span style="color: red; font-weight: bold;">
         geriausiai, Tavo nuomone, Tave atspindinčiu savo
         kūrybos darbu
     </span>
+    {% else %}
+    rekomendacijomis
     {% endif %}
     ir {{ info.year|add:"-1" }}/{{ info.year }} mokslo metų 
     metiniais įvertinimais atsiųsti arba atnešti į
-    {{ info.address }} iki {{ info.forms_send_deadline }}.
+    {{ info.address }} iki
+    {{ info.forms_send_deadline|date:"Y-m-d" }}.
 </p>
 {% endblock %}
 
@@ -50,7 +53,7 @@
         </li>
         <li>
             <span>Sekcija:</span>
-            <span>{{ base_info.get_section_display }}</span>
+            <span>{{ base_info.section.title }}</span>
         </li>
         {% if base_info.generated_address %}
         <li>
@@ -64,7 +67,7 @@
         {{ pupil_form.phone_number.errors }}
         Kontaktinis telefono numeris:
         {{ pupil_form.phone_number }}
-        <p class="pupil_form-note">
+        <p class="form-note">
             Pavyzdžiui, +37052123456 arba +37061234567.
         </p>
         </li>
@@ -72,7 +75,7 @@
         {{ pupil_form.birth_date.errors }}
         {{ pupil_form.birth_date.label_tag }}:
         {{ pupil_form.birth_date }}
-        <p class="pupil_form-note">
+        <p class="form-note">
             Pavyzdžiui, 1994-12-02.
         </p>
         </li>
@@ -90,7 +93,7 @@
         prizinę vietą, vietovę, datą, olimpiados/konkurso
         pavadinimą).
     </p>
-    <ol class="pupil_form">
+    <ol class="form">
         <li>
         {{ pupil_form.international_achievements.errors }}
         Tarptautiniuose („Kengūros“, „Bebro“ konkursai
@@ -110,7 +113,7 @@
     </ol>
 </fieldset>
 <fieldset>
-    <ol class="pupil_form">
+    <ol class="form">
         <li>
         {{ pupil_form.scholarschips.errors }}
         Apdovanojimai pasirinktos dalykinės srities

@@ -6,7 +6,7 @@ Labas,
 siunčiu anketą, kurią turi atsispausdinti, pasirašyti bei
 kartu su kitais dokumentais atnešti arba atsiųsti adresu
 {{ info.address }}
-iki {{ info.forms_send_deadline }}.
+iki {{ info.forms_send_deadline|date:"Y-m-d" }}.
 
 Iki greito,
 NMA komanda

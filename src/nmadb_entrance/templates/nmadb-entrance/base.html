@@ -36,8 +36,15 @@
         <div id="footer">
           {% block footer %}
           <p>
-            Iškilus problemoms ar atsiradus neaiškumams,
-            <a href="http://www.nmakademija.lt/kontaktai/">susisiekite</a>.
+            Jei kils neaiškumų, arba norėsite paklausti, būtinai rašykite
+            {{ info.manager_name_dative }} el. pašto adresu
+            {{ info.manager_email }} arba skambinkite
+            {{ info.manager_phone }}.
+          </p>
+          <p>
+            Taip pat, jei pastebėsite registracijos sistemos klaidą,
+            būtume dėkingi, jei apie ją kuo skubiau praneštumėte
+            elektroninio pašto adresu {{ info.admin_email }}. Ačiū.
           </p>
           <p>
             NMA serveris mano, kad dabar yra:
