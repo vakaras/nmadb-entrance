@@ -1,0 +1,482 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-15 11:03+0000\n"
+"PO-Revision-Date: 2012-08-15 14:04+0300\n"
+"Last-Translator: Vytautas Astrauskas <vastrauskas@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: forms.py:24
+msgid "Registration ended."
+msgstr "Registracija jau pasibaigusi."
+
+#: forms.py:69
+msgid "You have to specify Your relation with pupil."
+msgstr "Nenurodėte savo ryšio su mokiniu."
+
+#: forms.py:84
+msgid "Yes"
+msgstr "Taip"
+
+#: forms.py:85
+msgid "No"
+msgstr "Ne"
+
+#: models.py:17
+msgid "Male"
+msgstr "Vyras"
+
+#: models.py:18
+msgid "Female"
+msgstr "Moteris"
+
+#: models.py:22
+msgid "registration identifier"
+msgstr "registracijos identifikatorius"
+
+#: models.py:25
+#: models.py:201
+#: models.py:317
+msgid "first name"
+msgstr "vardas"
+
+#: models.py:29
+#: models.py:205
+#: models.py:321
+msgid "last name"
+msgstr "pavardė"
+
+#: models.py:35
+msgid "gender"
+msgstr "lytis"
+
+#: models.py:40
+msgid "school"
+msgstr "mokykla"
+
+#: models.py:45
+#: models.py:219
+#: models.py:335
+msgid "email address"
+msgstr "elektroninio pašto adresas"
+
+#: models.py:50
+msgid "section"
+msgstr "sekcija"
+
+#: models.py:58
+msgid "class"
+msgstr "klasė"
+
+#: models.py:66
+msgid "class update year"
+msgstr "klasės atnaujinimo metai"
+
+#: models.py:68
+msgid "This field value shows, at which year January 3 day student was in school_class."
+msgstr "Šio lauko reikšmė nurodo kurių metų sausio  dieną mokinys buvo klasėje school_class."
+
+#: models.py:80
+#: models.py:168
+#: models.py:294
+#: models.py:351
+#: models.py:483
+msgid "commit timestamp"
+msgstr "išsaugojimo momentas"
+
+#: models.py:86
+#: models.py:100
+#: models.py:197
+#: models.py:313
+#: models.py:473
+msgid "base info"
+msgstr "bazinė informacija"
+
+#: models.py:87
+msgid "base infos"
+msgstr "bazinės informacijos"
+
+#: models.py:105
+msgid "home address"
+msgstr "namų adresas"
+
+#: models.py:107
+msgid "Null only if base_info.generated_address is present."
+msgstr "NULL tik tada, kai yra nurodytas base_info.generated_address."
+
+#: models.py:113
+msgid "phone number"
+msgstr "telefono numeris"
+
+#: models.py:117
+msgid "birth date"
+msgstr "gimimo data"
+
+#: models.py:124
+msgid "international achievements"
+msgstr "tarptautiniai pasiekimai"
+
+#: models.py:130
+msgid "national achievements"
+msgstr "nacionaliniai pasiekimai"
+
+#: models.py:136
+msgid "district achievements"
+msgstr "rajoniniai pasiekimai"
+
+#: models.py:142
+msgid "scholarschips"
+msgstr "stipendijos"
+
+#: models.py:148
+msgid "other achievements"
+msgstr "kiti pasiekimai"
+
+#: models.py:152
+msgid "interests"
+msgstr "interesai"
+
+#: models.py:156
+msgid "motivation"
+msgstr "motyvacija"
+
+#: models.py:160
+msgid "future"
+msgstr "ateitis"
+
+#: models.py:164
+msgid "come from"
+msgstr "sužinojo iš"
+
+#: models.py:174
+msgid "pupil info"
+msgstr "mokinio informacija"
+
+#: models.py:175
+msgid "pupils infos"
+msgstr "mokinių informacijos"
+
+#: models.py:178
+#: models.py:304
+#: models.py:361
+msgid "<{0.id}> base info: {0.base}"
+msgstr "<{0.id}> bazinė informacija: {0.base}"
+
+#: models.py:186
+msgid "Excellent"
+msgstr "Puikiai"
+
+#: models.py:187
+msgid "Very good"
+msgstr "Labai gerai"
+
+#: models.py:188
+msgid "Good"
+msgstr "Gerai"
+
+#: models.py:189
+msgid "Enough"
+msgstr "Pakankamai"
+
+#: models.py:190
+msgid "Satisfactory"
+msgstr "Patenkinamai"
+
+#: models.py:191
+msgid "Weak"
+msgstr "Silpnai"
+
+#: models.py:192
+msgid "It was not possible to evaluate"
+msgstr "Nebuvo galimybės įvertinti"
+
+#: models.py:210
+#: models.py:326
+msgid "contact address"
+msgstr "adresas kontaktams"
+
+#: models.py:214
+#: models.py:330
+msgid "contact phone"
+msgstr "kontaktinis telefonas"
+
+#: models.py:224
+msgid "qualification"
+msgstr "kvalifikacija"
+
+#: models.py:229
+msgid "class master"
+msgstr "klasės auklėtojas"
+
+#: models.py:235
+msgid "subject teacher"
+msgstr "dalyko mokytojas"
+
+#: models.py:241
+msgid "other"
+msgstr "kita"
+
+#: models.py:246
+msgid "know years"
+msgstr "pažįstate metų"
+
+#: models.py:251
+msgid "systemic thinking ability"
+msgstr "sisteminio mąstymo gebėjimai"
+
+#: models.py:256
+msgid "analytical thinking ability"
+msgstr "analitinio mąstymo gebėjimai"
+
+#: models.py:261
+msgid "deductive thinking ability"
+msgstr "dedukcinio mąstymo gebėjimai"
+
+#: models.py:266
+msgid "self studying ability"
+msgstr "mokinio gebėjimas mokytis savarankiškai"
+
+#: models.py:271
+msgid "team working ability"
+msgstr "mokinio gebėjimas dirbti komandoje"
+
+#: models.py:276
+msgid "oral expression ability"
+msgstr "gebėjimas reikšti mintis žodžiu"
+
+#: models.py:281
+msgid "written expression ability"
+msgstr "gebėjimas reikšti mintis raštu"
+
+#: models.py:286
+msgid "receptivity ability"
+msgstr "mokinio imlumas mokslui (mokslumas)"
+
+#: models.py:290
+#: models.py:347
+#: models.py:378
+#: models.py:426
+msgid "comment"
+msgstr "komentarai"
+
+#: models.py:300
+msgid "teacher form"
+msgstr "mokytojo forma"
+
+#: models.py:301
+msgid "teachers forms"
+msgstr "mokytojo formos"
+
+#: models.py:339
+msgid "pupil study in school years"
+msgstr "mokosi mokykloje metų"
+
+#: models.py:343
+#: models.py:444
+msgid "socially supported"
+msgstr "socialiai remtina"
+
+#: models.py:357
+msgid "director form"
+msgstr "direktoriaus forma"
+
+#: models.py:358
+msgid "directors forms"
+msgstr "direktorių formos"
+
+#: models.py:370
+#: models.py:515
+msgid "address"
+msgstr "adresas"
+
+#: models.py:374
+msgid "time"
+msgstr "laikas"
+
+#: models.py:384
+msgid "testing location"
+msgstr "tastavimo vieta"
+
+#: models.py:385
+msgid "testing locations"
+msgstr "testavimo vietos"
+
+#: models.py:396
+msgid "payed"
+msgstr "sumokėjo"
+
+#: models.py:398
+msgid "True, if pupil have payed registration fee."
+msgstr "True, jei mokinys sumokėjo registracijos mokestį."
+
+#: models.py:402
+msgid "pupil received"
+msgstr "mokinio gauta"
+
+#: models.py:403
+msgid "True, if pupil form was received."
+msgstr "True, jei mokinio anketa buvo gauta."
+
+#: models.py:408
+msgid "teacher received"
+msgstr "mokytojo gauta"
+
+#: models.py:409
+msgid "True, if teacher form was received."
+msgstr "True, jei mokytojo anketa buvo gauta."
+
+#: models.py:414
+msgid "director received"
+msgstr "direktoriaus gauta"
+
+#: models.py:415
+msgid "True, if director form was received."
+msgstr "True, jei direktoriaus anketa buvo gauta."
+
+#: models.py:420
+msgid "marks received"
+msgstr "pažymiai gauti"
+
+#: models.py:421
+msgid "True, if pupil marks form were received."
+msgstr "True, jei mokinio pažymiai buvo gauti."
+
+#: models.py:431
+msgid "done"
+msgstr "atlikta"
+
+#: models.py:438
+msgid "Testing location"
+msgstr "Testavimo vieta"
+
+#: models.py:448
+msgid "Registration info"
+msgstr "Registracijos informacija"
+
+#: models.py:449
+msgid "Registration infos"
+msgstr "Registracijos informacijos"
+
+#: models.py:460
+msgid "teacher form filled by hand"
+msgstr "mokytojo anketa užpildyta ranka"
+
+#: models.py:461
+msgid "director form filled by hand"
+msgstr "direktoriaus anketa užpildyta ranka"
+
+#: models.py:462
+msgid "teacher form filled with computer"
+msgstr "mokytojo anketa užpildyta kompiuteriu"
+
+#: models.py:463
+msgid "director form filled with computer"
+msgstr "direktoriaus anketa užpildyta kompiuteriu"
+
+#: models.py:464
+msgid "pupil form filled with computer"
+msgstr "mokinio anketa užpildyta kompiuteriu"
+
+#: models.py:468
+msgid "file identifier"
+msgstr "failo identifikatorius"
+
+#: models.py:479
+msgid "type"
+msgstr "tipas"
+
+#: models.py:504
+msgid "PDF file"
+msgstr "PDF failas"
+
+#: models.py:505
+msgid "PDF files"
+msgstr "PDF failai"
+
+#: models.py:519
+msgid "year"
+msgstr "metai"
+
+#: models.py:523
+msgid "forms send deadline"
+msgstr "anketų išsiuntimo terminas"
+
+#: models.py:528
+msgid "manager name dative"
+msgstr "vadovo vardas naudininko linksnyje"
+
+#: models.py:532
+msgid "manager email"
+msgstr "vadovo elektroninio pašto adresas"
+
+#: models.py:536
+msgid "manager phone"
+msgstr "vadovo telefonas"
+
+#: models.py:540
+msgid "administrator email"
+msgstr "administratoriaus paštas"
+
+#: models.py:544
+msgid "pupil form deadline"
+msgstr "mokinio anketos užpildymo terminas"
+
+#: models.py:548
+msgid "entrance fee"
+msgstr "registracijos mokestis"
+
+#: models.py:553
+msgid "firm title"
+msgstr "įmonės pavadinimas"
+
+#: models.py:558
+msgid "firm code"
+msgstr "įmonės kodas"
+
+#: models.py:563
+msgid "bank account"
+msgstr "banko sąskaita"
+
+#: models.py:567
+msgid "success notification deadline"
+msgstr "pranešimo apie priėmimą terminas"
+
+#: models.py:571
+msgid "registration system information"
+msgstr "registracijos sistemos informacija"
+
+#: models.py:572
+msgid "registration system informations"
+msgstr "registracijos sistemos informacijos"
+
+#: notify.py:29
+msgid "for_teacher"
+msgstr "mokytojui"
+
+#: notify.py:30
+msgid "for_director"
+msgstr "direktoriui"
+
+#: notify.py:31
+msgid "teacher-form"
+msgstr "mokytojo-anketa"
+
+#: notify.py:32
+msgid "director-form"
+msgstr "direktoriaus-anketa"
+
+#: notify.py:33
+msgid "pupil-form"
+msgstr "mokinio-anketa"
+
