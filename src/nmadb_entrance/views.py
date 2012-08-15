@@ -19,7 +19,12 @@ def index(request):
 
     if check_condition(u'registration-ended'):
         return direct_to_template(
-                request, template='nmadb-entrance/ended.html')
+                request,
+                template='nmadb-entrance/ended.html',
+                extra_context={
+                    'info': info,
+                    },
+                )
 
     form_errors = False
 
@@ -49,6 +54,7 @@ def index(request):
         form = forms.BaseInfoForm()
 
     return {
+            'info': info,
             'form': form,
             'form_errors': form_errors,
             }
@@ -73,7 +79,7 @@ def add_pupil_info(request, uuid):
                 extra_context={
                     'base_info': base_info,
                     'info': info,
-                    }
+                    },
                 )
 
     form_errors = False
