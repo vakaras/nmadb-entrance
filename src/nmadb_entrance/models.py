@@ -183,13 +183,13 @@ class TeacherInfo(models.Model):
     """
 
     ABILITY_CHOICES = (
-            (1, u'Excellent'),
-            (2, u'Very good'),
-            (3, u'Good'),
-            (4, u'Enough'),
-            (5, u'Satisfactory'),
-            (6, u'Weak'),
-            (7, u'It was not possible to evaluate'),
+            (1, _(u'Excellent')),
+            (2, _(u'Very good')),
+            (3, _(u'Good')),
+            (4, _(u'Enough')),
+            (5, _(u'Satisfactory')),
+            (6, _(u'Weak')),
+            (7, _(u'It was not possible to evaluate')),
             )
 
     base = models.ForeignKey(
@@ -568,5 +568,5 @@ class Info(models.Model):
             )
 
     class Meta(object):
-        verbose_name = _(u'registration information')
-        verbose_name_plural = _(u'registration informations')
+        verbose_name = _(u'registration system information')
+        verbose_name_plural = _(u'registration system informations')
