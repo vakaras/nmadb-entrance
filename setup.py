@@ -18,6 +18,9 @@ setup(
             'distribute',
             ],
         install_requires=[              # Dependencies for the package.
+            'db_utils',
+            'pysheets',
+            'reportlab',
             ],
         scripts=[],                     # List of python script files.
         #data_files=[('/etc/init.d', ['init-script'])]
