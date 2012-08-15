@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 11:03+0000\n"
-"PO-Revision-Date: 2012-08-15 14:04+0300\n"
+"POT-Creation-Date: 2012-08-15 13:35+0000\n"
+"PO-Revision-Date: 2012-08-15 16:38+0300\n"
 "Last-Translator: Vytautas Astrauskas <vastrauskas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,6 +16,55 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: admin.py:136
+#: models.py:25
+#: models.py:201
+#: models.py:317
+msgid "first name"
+msgstr "vardas"
+
+#: admin.py:140
+#: models.py:29
+#: models.py:205
+#: models.py:321
+msgid "last name"
+msgstr "pavardė"
+
+#: admin.py:144
+#: models.py:45
+#: models.py:219
+#: models.py:335
+msgid "email address"
+msgstr "elektroninio pašto adresas"
+
+#: admin.py:154
+msgid "p. reg."
+msgstr "m. užp."
+
+#: admin.py:176
+msgid "teacher first name"
+msgstr "mokytojo vardas"
+
+#: admin.py:180
+msgid "teacher last name"
+msgstr "mokytojo pavardė"
+
+#: admin.py:184
+msgid "teacher email address"
+msgstr "mokytojo elektroninio pašto adresas"
+
+#: admin.py:205
+msgid "director first name"
+msgstr "direktoriaus vardas"
+
+#: admin.py:209
+msgid "director last name"
+msgstr "direktoriaus pavardė"
+
+#: admin.py:213
+msgid "director email address"
+msgstr "direktoriaus elektroninio pašto adresas"
 
 #: forms.py:24
 msgid "Registration ended."
@@ -45,18 +94,6 @@ msgstr "Moteris"
 msgid "registration identifier"
 msgstr "registracijos identifikatorius"
 
-#: models.py:25
-#: models.py:201
-#: models.py:317
-msgid "first name"
-msgstr "vardas"
-
-#: models.py:29
-#: models.py:205
-#: models.py:321
-msgid "last name"
-msgstr "pavardė"
-
 #: models.py:35
 msgid "gender"
 msgstr "lytis"
@@ -64,12 +101,6 @@ msgstr "lytis"
 #: models.py:40
 msgid "school"
 msgstr "mokykla"
-
-#: models.py:45
-#: models.py:219
-#: models.py:335
-msgid "email address"
-msgstr "elektroninio pašto adresas"
 
 #: models.py:50
 msgid "section"
@@ -306,7 +337,7 @@ msgstr "laikas"
 
 #: models.py:384
 msgid "testing location"
-msgstr "tastavimo vieta"
+msgstr "testavimo vieta"
 
 #: models.py:385
 msgid "testing locations"
@@ -314,7 +345,7 @@ msgstr "testavimo vietos"
 
 #: models.py:396
 msgid "payed"
-msgstr "sumokėjo"
+msgstr "sumok."
 
 #: models.py:398
 msgid "True, if pupil have payed registration fee."
@@ -322,7 +353,7 @@ msgstr "True, jei mokinys sumokėjo registracijos mokestį."
 
 #: models.py:402
 msgid "pupil received"
-msgstr "mokinio gauta"
+msgstr "mokinio g."
 
 #: models.py:403
 msgid "True, if pupil form was received."
@@ -330,7 +361,7 @@ msgstr "True, jei mokinio anketa buvo gauta."
 
 #: models.py:408
 msgid "teacher received"
-msgstr "mokytojo gauta"
+msgstr "mokytojo g."
 
 #: models.py:409
 msgid "True, if teacher form was received."
@@ -338,7 +369,7 @@ msgstr "True, jei mokytojo anketa buvo gauta."
 
 #: models.py:414
 msgid "director received"
-msgstr "direktoriaus gauta"
+msgstr "dir. g."
 
 #: models.py:415
 msgid "True, if director form was received."
@@ -346,7 +377,7 @@ msgstr "True, jei direktoriaus anketa buvo gauta."
 
 #: models.py:420
 msgid "marks received"
-msgstr "pažymiai gauti"
+msgstr "paž. g."
 
 #: models.py:421
 msgid "True, if pupil marks form were received."
