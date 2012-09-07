@@ -515,6 +515,10 @@ class Info(models.Model):
             verbose_name=_(u'address'),
             )
 
+    address_multiline = models.TextField(
+            verbose_name=_(u'address multiline'),
+            )
+
     year = models.PositiveSmallIntegerField(
             verbose_name=_(u'year'),
             )

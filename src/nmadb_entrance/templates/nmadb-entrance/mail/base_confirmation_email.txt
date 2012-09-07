@@ -25,10 +25,7 @@ tobulėti bei išmokti dar daugiau!
     {% else %}    įvertinimus) su parašais iki {{ info.forms_send_deadline|date:"Y-m-d" }} turi atsiųsti arba
     atnešti adresu:
 {% endif %}
-
-    VšĮ „Nacionalinė moksleivių akademija“
-    Studentų g. 63A-206
-    LT-51369 Kaunas
+{{ info.address_multiline }}
 
 5.  Taip pat iki {{ info.pupil_form_deadline|date:"Y-m-d" }} nepamiršk sumokėti {{ info.entrance_fee }} Lt registracijos 
     mokesčio:
