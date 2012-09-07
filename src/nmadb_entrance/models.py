@@ -453,7 +453,7 @@ class RegistrationInfo(BaseInfo):
         verbose_name_plural = _(u'Registration infos')
 
     def __unicode__(self):
-        return u'{0.base}'.format(self)
+        return u'<{0.id}> {0.first_name} {0.last_name}'.format(self)
 
 
 class PDFFile(models.Model):
