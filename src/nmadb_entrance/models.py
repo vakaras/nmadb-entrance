@@ -246,6 +246,10 @@ class TeacherInfo(models.Model):
             verbose_name=_(u'know years'),
             )
 
+    social = models.BooleanField(
+            verbose_name=_(u'socially supported'),
+            )
+
     systemic_thinking_ability = models.IntegerField(
             choices=ABILITY_CHOICES,
             verbose_name=_(u'systemic thinking ability'),

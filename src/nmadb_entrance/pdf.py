@@ -232,6 +232,15 @@ Informacija apie rekomendaciją parašiusį asmenį:'''
 
     teacher_data.append(
             [u'Kiek metų pažįstate mokinį(-ę)?', getter('years')])
+    if teacher_info is None:
+        teacher_data.append([
+            u'Ar mokinio(-ės) šeima yra socialiai remtina? (pabraukti)',
+            u'Taip / Ne'])
+    else:
+        teacher_data.append([
+            u'Ar mokinio(-ės) šeima yra socialiai remtina?',
+            u'Taip' if teacher_info.social else u'Ne'])
+
     teacher_info = Table(
         [
             [
