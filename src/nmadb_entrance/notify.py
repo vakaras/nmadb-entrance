@@ -56,7 +56,6 @@ def confirm_base_registration(base_info):
     email.to = [base_info.email]
 
     attach_file(email, base_info, u'TH')
-    attach_file(email, base_info, u'DH')
 
     email.send()
 
@@ -87,10 +86,6 @@ def delay_registration(base_info):
     with open(base_info.get_teacher_pdf_path(), 'rb') as pdf_file:
         data = pdf_file.read()
         email.attach('mokytojui.pdf', data)
-
-    with open(base_info.get_director_pdf_path(), 'rb') as pdf_file:
-        data = pdf_file.read()
-        email.attach('direktoriui.pdf', data)
 
     email.send()
 
@@ -188,10 +183,8 @@ def send_if_all(base_info):
     try:
         pupil_info = base_info.pupilinfo_set.get()
         teacher_info = base_info.teacherinfo_set.get()
-        director_info = base_info.directorinfo_set.get()
     except (models.PupilInfo.DoesNotExist,
-            models.TeacherInfo.DoesNotExist,
-            models.DirectorInfo.DoesNotExist):
+            models.TeacherInfo.DoesNotExist):
         return
 
     if check_condition(u'pupil-notify-done'):
@@ -215,7 +208,6 @@ def send_if_all(base_info):
         email.to = [base_info.email]
 
         attach_file(email, base_info, u'TC')
-        attach_file(email, base_info, u'DC')
         attach_file(email, base_info, u'PC')
 
         email.send()
@@ -241,7 +233,6 @@ def send_if_all(base_info):
         email.to = [info.manager_email]
 
         attach_file(email, base_info, u'TC')
-        attach_file(email, base_info, u'DC')
         attach_file(email, base_info, u'PC')
 
         email.send()

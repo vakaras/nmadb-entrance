@@ -4,16 +4,16 @@
 <p>
     Į tavo elektroninio pašto dėžutę buvo išsiųstas laiškas
     su užpildyta forma. Ją turi atsispausdinti, pasirašyti
-    bei kartu su mokytojo bei vadovo
+    bei kartu su mokytojo
     {% if base_info.section.title == "Lietuvių filologija" %}
-    rekomendacijomis, geriausiai, tavo nuomone, tave atspindinčiu
+    rekomendacija, geriausiai, tavo nuomone, tave atspindinčiu
     savo kūrybos darbu
     {% else %}
-    rekomendacijomis
+    rekomendacija
     {% endif %}
     ir {{ info.year|add:"-1" }}/{{ info.year }} mokslo metų 
     metiniais įvertinimais atsiųsti arba atnešti į
     {{ info.address }} iki
-    {{ info.forms_send_deadline|date:"Y-m-d" }}.
+    {{ info.forms_send_deadline|date:"Y-m-d" }} (spaudo data).
 </p>
 {% endblock %}
