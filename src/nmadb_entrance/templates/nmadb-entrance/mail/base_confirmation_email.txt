@@ -33,7 +33,7 @@ tobulėti bei išmokti dar daugiau!
     {{ info.firm_title }}
     {{ info.firm_code }}
     {{ info.bank_account }}
-    Įmoka už: {{ base_info.first_name }}, {{ base_info.last_name }} registracijos mokestis
+    Įmoka už: {{ base_info.first_name }} {{ base_info.last_name }}, registracijos mokestis
 
     Jei esi iš socialiai remtinos šeimos, tai turi būti pažymėta mokytojo
     rekomendacijoje. Tuomet mokesčio mokėti nereikia.
