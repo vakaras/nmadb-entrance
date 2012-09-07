@@ -38,7 +38,6 @@ def index(request):
             base_info.save()
 
             pdf.generate_teacher_hand_form(base_info)
-            pdf.generate_director_form(base_info)
 
             if check_condition('vip', base_info=base_info):
                 # TODO

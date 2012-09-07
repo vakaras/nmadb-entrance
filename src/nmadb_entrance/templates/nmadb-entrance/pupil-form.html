@@ -5,20 +5,20 @@
     Žemiau yra pateikta internetinė forma, kurią Tau užpildžius,
     į Tavo elektroninio pašto dėžutę bus išsiųsta forma PDF
     formatu. Ją turėsi atsispausdinti, pasirašyti bei kartu
-    su mokytojo bei vadovo
+    su mokytojo
     {% if base_info.section.title == "Lietuvių filologija" %}
-    rekomendacijomis,
+    rekomendacija,
     <span style="color: red; font-weight: bold;">
         geriausiai, Tavo nuomone, Tave atspindinčiu savo
         kūrybos darbu
     </span>
     {% else %}
-    rekomendacijomis
+    rekomendacija
     {% endif %}
     ir {{ info.year|add:"-1" }}/{{ info.year }} mokslo metų 
     metiniais įvertinimais atsiųsti arba atnešti į
     {{ info.address }} iki
-    {{ info.forms_send_deadline|date:"Y-m-d" }}.
+    {{ info.forms_send_deadline|date:"Y-m-d" }} (spaudo data).
 </p>
 {% endblock %}
 

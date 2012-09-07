@@ -9,8 +9,8 @@ Dar kartą siunčiu visas užpildytas anketas, kurias turi su parašais
 atsiųsti arba atnešti adresu {{ info.address }}
 iki {{ info.forms_send_deadline|date:"Y-m-d" }}.
 
-Mokyklos vadovas bei mokytojas, užpildę Tavo rekomendacijas el.
-būdu, gavo jas į savo el. pašto dėžutes.
+Mokytojas, užpildęs Tavo rekomendacijas el.
+būdu, gavo jas į savo el. pašto dėžutę.
 
 Iki greito,
 NMA komanda

@@ -8,6 +8,10 @@ kartu su kitais dokumentais atnešti arba atsiųsti adresu
 {{ info.address }}
 iki {{ info.forms_send_deadline|date:"Y-m-d" }}.
 
+Nepamiršk pridėti mokytojo rekomendacijos,
+{{ info.year|add:"-1" }}/{{ info.year }} mokslo metų metinių įvertinimų.
+Taip pat jei stoji į filologijos sekciją, pridėk savo kūrybos darbą.
+
 Iki greito,
 NMA komanda
 {% endblock %}
