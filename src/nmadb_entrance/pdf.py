@@ -167,20 +167,20 @@ paštu adresu {0.address},
         ''').format(info),
                              styles['Note']))
 
-    content.append(Spacer(1, 0.5*units.cm))
+    content.append(Spacer(1, 0.3*units.cm))
 
     content.append(Paragraph((u'''
 Rekomenduojamas mokinys:
 <font name="Ubuntu-B">{0.first_name} {0.last_name}</font>'''
                               ).format(base_info), styles['Normal']))
 
-    content.append(Spacer(1, 0.5*units.cm))
+    content.append(Spacer(1, 0.3*units.cm))
 
     content.append(Paragraph((u'''
 Informacija apie rekomendaciją parašiusį asmenį:'''
                               ).format(base_info), styles['SubHeading']))
 
-    content.append(Spacer(1, 0.5*units.cm))
+    content.append(Spacer(1, 0.3*units.cm))
 
     def getter(*attributes):
         if teacher_info is None:
@@ -267,14 +267,14 @@ def generate_teacher_hand_form(base_info):
 
     content = get_teacher_form_header(base_info)
 
-    content.append(Spacer(1, 0.5*units.cm))
+    content.append(Spacer(1, 0.3*units.cm))
 
     content.append(Paragraph((u'''
 Prašome įvertinti mokinį(-ę) pagal šiuos kriterijus
 (pažymėkite atitinkamą langelį <font name="Ubuntu-B">X</font>):'''
                               ).format(base_info), styles['Normal']))
 
-    content.append(Spacer(1, 0.5*units.cm))
+    content.append(Spacer(1, 0.3*units.cm))
 
     p = lambda x: Paragraph(x, styles['TableCellCenter'])
     evaluations = [
@@ -593,13 +593,13 @@ def generate_teacher_filled_form(base_info, teacher_info):
 
     content = get_teacher_form_header(base_info, teacher_info)
 
-    content.append(Spacer(1, 0.5*units.cm))
+    content.append(Spacer(1, 0.3*units.cm))
 
     content.append(Paragraph(
         u'Prašome įvertinti mokinį(-ę) pagal šiuos kriterijus:',
         styles['Normal']))
 
-    content.append(Spacer(1, 0.5*units.cm))
+    content.append(Spacer(1, 0.3*units.cm))
 
     abilities = Table([
         [
