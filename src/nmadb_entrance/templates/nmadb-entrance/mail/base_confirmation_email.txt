@@ -9,25 +9,25 @@ tobulėti bei išmokti dar daugiau!
 Žemiau rasi dvi nuorodas bei prisegtą vieną formą:
 
 1.  Nuoroda į Tavo prašymo formą, kurią turi iki {{ info.pupil_form_deadline|date:"Y-m-d" }}
-    užpildyti elektroniniu būdu ir atsispausdinti, pasirašyti.
+    užpildyti elektroniniu būdu atsispausdinti ir pasirašyti.
 
 2.  Nuorodą į mokytojo rekomendacijos formą bei prisegtą formą pildymui
     ranka. Gali persiųsti nuorodą mokytojui, kad jis užpildytų
-    formą elektroniniu būdu, arba atspausdinti prisegtą formą ir ją
-    nunešti užpildyti mokytojui. Geriausiai būtų to dalyko mokytojui, į
-    kurią sekciją norėtum stoti. Jei šiais metais pakeitei mokyklą, gali
-    kreiptis rekomendacijos į buvusios mokyklos mokytoją.
+    formą elektroniniu būdu arba atspausdinti prisegtą formą ir ją
+    pateikti mokytojui. Geriausiai būtų, jeigu rekomendaciją parašytų to dalyko
+    mokytojas, į kurią sekciją ketini stoti. Jei šiais metais pakeitei mokyklą,
+    gali kreiptis rekomendacijos į buvusios mokyklos mokytoją.
 
-3.  Visus tris dokumentus (prašymą, mokytojo
-    rekomendaciją, {{ info.year|add:"-1" }}/{{ info.year }} mokslo metų metinius
-{% if base_info.section.title == "Lietuvių filologija" %}    įvertinimus) su parašais bei tavo nuomone geriausiai tave atspindintį
+3.  Prašymą, mokytojo rekomendaciją, {{ info.year|add:"-1" }}/{{ info.year }}
+    mokslo metų metinius
+{% if base_info.section.title == "Lietuvių filologija" %}    įvertinimus su parašais bei tavo nuomone geriausiai tave atspindintį
     darbą iki {{ info.forms_send_deadline|date:"Y-m-d" }} turi atsiųsti arba atnešti adresu:
-    {% else %}    įvertinimus) su parašais iki {{ info.forms_send_deadline|date:"Y-m-d" }} turi atsiųsti arba
+    {% else %}    įvertinimus su parašais iki {{ info.forms_send_deadline|date:"Y-m-d" }} turi atsiųsti arba
     atnešti adresu:
 {% endif %}
 {{ info.address_multiline }}
 
-5.  Taip pat iki {{ info.pupil_form_deadline|date:"Y-m-d" }} nepamiršk sumokėti {{ info.entrance_fee }} Lt registracijos 
+4.  Taip pat iki {{ info.pupil_form_deadline|date:"Y-m-d" }} nepamiršk sumokėti {{ info.entrance_fee }} Lt registracijos 
     mokesčio:
     
     {{ info.firm_title }}
@@ -35,11 +35,12 @@ tobulėti bei išmokti dar daugiau!
     {{ info.bank_account }}
     Įmoka už: {{ base_info.first_name }} {{ base_info.last_name }}, registracijos mokestis
 
-    Jei esi iš socialiai remtinos šeimos, tai turi būti pažymėta mokytojo
-    rekomendacijoje. Tuomet mokesčio mokėti nereikia.
+    Jei esi iš socialiai remtinos šeimos ir tai pažymėta mokytojo
+    rekomendacijoje, tuomet mokesčio mokėti nereikia.
 
-6.  {{ info.success_notification_deadline|date:"Y-m-d" }} sulauksi el. laiško, ar patekai į antrą atrankos etapą ir
-    visą kitą reikalingą informaciją.
+5.  {{ info.success_notification_deadline|date:"Y-m-d" }} sulauksi el. laiško
+    su žinute apie tai, ar patekai į antrą atrankos etapą, ir visa kita
+    reikalinga informacija.
 
 Nuoroda į Tavo anketos formą:
 http://{{ current_site }}{% url nmadb-entrance-add-pupil-info base_info.uuid %}
