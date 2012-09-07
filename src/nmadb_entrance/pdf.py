@@ -441,6 +441,17 @@ akademijai paprastu paštu adresu {0.address},
 
     content.append(Spacer(1, 0.5*units.cm))
 
+    content.appen(Paragraph((u'''
+<font name="Ubuntu-B">
+Prie prašymo prašome pridėti išrašą (pažymių knygelės kopija su
+semestrų/trimestrų įvertinimais, išrašas iš elektroninio dienyno
+ir pan.) su savo {0}/{1} mokslo metų metiniais įvertinimais.
+</font>
+            ''').format(info.year - 1, info.year),
+            styles['Note']))
+
+    content.append(Spacer(1, 0.5*units.cm))
+
     content.append(Table([[
         Paragraph(u'Data:', styles["Normal"]),
         Paragraph(u'Parašas:', styles["Normal"])]],
