@@ -160,7 +160,7 @@ def get_teacher_form_header(base_info, teacher_info=None):
 
     content.append(Paragraph((u'''
 Pasirašytą rekomendaciją prašome atsiųsti kartu su mokinio
-prašymu Nacionalinei moksleivių akademijai paprastu
+prašymu Nacionalinei moksleivių akademijai
 paštu adresu {0.address},
 <font name="Ubuntu-BI">iki {0.forms_send_deadline}</font>
 (spaudo data).
@@ -347,7 +347,7 @@ Prašymas priimti mokytis<br /> Nacionalinei moksleivių akademijai
         [Paragraph((u'''
 Anketą reikia užpildyti ir būtinai atsiųsti spausdintą variantą
 <font name="Ubuntu-B">su parašu</font> Nacionalinei moksleivių
-akademijai paprastu paštu adresu {0.address},
+akademijai paštu adresu {0.address},
 <font name="Ubuntu-B">iki {0.forms_send_deadline}</font>
 (spaudo data).
             ''').format(info),
@@ -458,7 +458,7 @@ def generate_director_form(base_info, director_info=None):
 
     content.append(Paragraph((u'''
 Pasirašytą rekomendaciją prašome atsiųsti kartu su mokinio
-prašymu Nacionalinei moksleivių akademijai paprastu
+prašymu Nacionalinei moksleivių akademijai
 paštu adresu {0.address},
 <font name="Ubuntu-BI">iki {0.forms_send_deadline}</font>
 (spaudo data).''').format(info),
