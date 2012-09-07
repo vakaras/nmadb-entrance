@@ -48,7 +48,7 @@ class RegistrationInfoAdmin(utils.ModelAdmin):
             'payed',
             'pupil_form_received',
             'teacher_form_received',
-            'director_form_received',
+            #'director_form_received',
             'marks_form_received',
             'done',
             'testing_location',
@@ -61,7 +61,7 @@ class RegistrationInfoAdmin(utils.ModelAdmin):
             'payed',
             'pupil_form_received',
             'teacher_form_received',
-            'director_form_received',
+            #'director_form_received',
             'marks_form_received',
             'done',
             'testing_location',
@@ -80,7 +80,7 @@ class RegistrationInfoAdmin(utils.ModelAdmin):
             'payed',
             'pupil_form_received',
             'teacher_form_received',
-            'director_form_received',
+            #'director_form_received',
             'marks_form_received',
             'done',
             'testing_location',
@@ -239,7 +239,7 @@ class TestLocationAdmin(admin.ModelAdmin):
 admin.site.register(models.BaseInfo, BaseInfoAdmin)
 admin.site.register(models.PupilInfo, PupilInfoAdmin)
 admin.site.register(models.TeacherInfo, TeacherAdmin)
-admin.site.register(models.DirectorInfo, DirectorAdmin)
+#admin.site.register(models.DirectorInfo, DirectorAdmin)
 admin.site.register(models.TestingLocation, TestLocationAdmin)
 admin.site.register(models.RegistrationInfo, RegistrationInfoAdmin)
 admin.site.register(models.PDFFile, PDFFileAdmin)
