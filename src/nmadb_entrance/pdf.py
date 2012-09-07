@@ -232,6 +232,15 @@ Informacija apie rekomendaciją parašiusį asmenį:'''
 
     teacher_data.append(
             [u'Kiek metų pažįstate mokinį(-ę)?', getter('years')])
+    if teacher_info is None:
+        teacher_data.append([
+            u'Ar mokinio(-ės) šeima yra socialiai remtina? (pabraukti)',
+            u'Taip / Ne'])
+    else:
+        teacher_data.append([
+            u'Ar mokinio(-ės) šeima yra socialiai remtina?',
+            u'Taip' if teacher_info.social else u'Ne'])
+
     teacher_info = Table(
         [
             [
@@ -429,6 +438,17 @@ akademijai paštu adresu {0.address},
             content.append(Paragraph(question, styles['TableAlignedNote']))
             content.append(Spacer(1, 0.2*units.cm))
             content.append(Paragraph(s(answer), styles['TableAligned']))
+
+    content.append(Spacer(1, 0.5*units.cm))
+
+    content.append(Paragraph((u'''
+<font name="Ubuntu-B">
+Prie prašymo prašome pridėti išrašą (pažymių knygelės kopija su
+semestrų/trimestrų įvertinimais, išrašas iš elektroninio dienyno
+ir pan.) su savo {0}/{1} mokslo metų metiniais įvertinimais.
+</font>
+            ''').format(info.year - 1, info.year),
+            styles['Note']))
 
     content.append(Spacer(1, 0.5*units.cm))
 

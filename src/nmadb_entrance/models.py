@@ -246,6 +246,10 @@ class TeacherInfo(models.Model):
             verbose_name=_(u'know years'),
             )
 
+    social = models.BooleanField(
+            verbose_name=_(u'socially supported'),
+            )
+
     systemic_thinking_ability = models.IntegerField(
             choices=ABILITY_CHOICES,
             verbose_name=_(u'systemic thinking ability'),
@@ -513,6 +517,10 @@ class Info(models.Model):
     address = models.CharField(
             max_length=255,
             verbose_name=_(u'address'),
+            )
+
+    address_multiline = models.TextField(
+            verbose_name=_(u'address multiline'),
             )
 
     year = models.PositiveSmallIntegerField(

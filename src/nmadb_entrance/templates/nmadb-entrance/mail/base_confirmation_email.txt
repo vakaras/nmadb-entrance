@@ -25,10 +25,7 @@ tobulėti bei išmokti dar daugiau!
     {% else %}    įvertinimus su parašais iki {{ info.forms_send_deadline|date:"Y-m-d" }} turi atsiųsti arba
     atnešti adresu:
 {% endif %}
-
-    VšĮ „Nacionalinė moksleivių akademija“
-    Studentų g. 63A-206
-    LT-51369 Kaunas
+{{ info.address_multiline }}
 
 4.  Taip pat iki {{ info.pupil_form_deadline|date:"Y-m-d" }} nepamiršk sumokėti {{ info.entrance_fee }} Lt registracijos 
     mokesčio:
@@ -36,7 +33,7 @@ tobulėti bei išmokti dar daugiau!
     {{ info.firm_title }}
     {{ info.firm_code }}
     {{ info.bank_account }}
-    Įmoka už: {{ base_info.first_name }}, {{ base_info.last_name }} registracijos mokestis
+    Įmoka už: {{ base_info.first_name }} {{ base_info.last_name }}, registracijos mokestis
 
     Jei esi iš socialiai remtinos šeimos ir tai pažymėta mokytojo
     rekomendacijoje, tuomet mokesčio mokėti nereikia.
