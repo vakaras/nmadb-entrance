@@ -441,7 +441,7 @@ akademijai paprastu paštu adresu {0.address},
 
     content.append(Spacer(1, 0.5*units.cm))
 
-    content.appen(Paragraph((u'''
+    content.append(Paragraph((u'''
 <font name="Ubuntu-B">
 Prie prašymo prašome pridėti išrašą (pažymių knygelės kopija su
 semestrų/trimestrų įvertinimais, išrašas iš elektroninio dienyno
