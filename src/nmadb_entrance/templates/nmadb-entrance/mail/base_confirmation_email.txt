@@ -27,7 +27,7 @@ tobulėti bei išmokti dar daugiau!
 {% endif %}
 {{ info.address_multiline }}
 
-4.  Taip pat iki {{ info.pupil_form_deadline|date:"Y-m-d" }} nepamiršk sumokėti {{ info.entrance_fee }} Lt registracijos 
+4.  Taip pat iki 2012-09-20 nepamiršk sumokėti {{ info.entrance_fee }} Lt registracijos 
     mokesčio:
     
     {{ info.firm_title }}
