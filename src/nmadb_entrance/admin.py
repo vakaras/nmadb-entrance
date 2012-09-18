@@ -34,6 +34,10 @@ class BaseInfoAdmin(utils.ModelAdmin):
             'school__title',
             )
 
+    readonly_fields = (
+            'commit_timestamp',
+            )
+
 
 class RegistrationInfoAdmin(utils.ModelAdmin):
     """ Administration for registration info.
@@ -111,6 +115,10 @@ class PDFFileAdmin(utils.ModelAdmin):
             'base_info__last_name',
             )
 
+    readonly_fields = (
+            'commit_timestamp',
+            )
+
 
 class InfoAdmin(utils.ModelAdmin):
     """ Base class for info administration.
@@ -130,6 +138,10 @@ class InfoAdmin(utils.ModelAdmin):
             'base__last_name',
             'base__email',
             ]
+
+    readonly_fields = (
+            'commit_timestamp',
+            )
 
     def base_first_name(self, info):
         return info.base.first_name
