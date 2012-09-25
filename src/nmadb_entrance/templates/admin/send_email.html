@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+
+<p>Enter email parameters:</p>
+
+<form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
+
+    {{ errors }}
+
+    {{ form }}
+
+    <input type="hidden" name="action" value="send_mail" />
+    <input type="submit" name="apply" value="Send" />
+</form>
+
+{% endblock %}
