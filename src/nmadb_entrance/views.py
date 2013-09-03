@@ -1,7 +1,7 @@
 import datetime
 
 from django.db import transaction
-from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
 from django import shortcuts
 from annoying.decorators import render_to
 
@@ -18,7 +18,7 @@ def index(request):
     """
 
     if check_condition(u'registration-ended'):
-        return direct_to_template(
+        return shortcuts.render(
                 request,
                 template='nmadb-entrance/ended.html',
                 extra_context={
@@ -229,3 +229,20 @@ def add_director_info(request, uuid):
             'form_errors': form_errors,
             'base_info': base_info,
             }
+
+
+class DirectTemplateView(TemplateView):
+    """ The class that provides an alternative to direct_to_template.
+
+    Source: http://stackoverflow.com/a/12150035
+    """
+    extra_context = None
+    def get_context_data(self, **kwargs):
+        context = super(self.__class__, self).get_context_data(**kwargs)
+        if self.extra_context is not None:
+            for key, value in self.extra_context.items():
+                if callable(value):
+                    context[key] = value()
+                else:
+                    context[key] = value
+        return context

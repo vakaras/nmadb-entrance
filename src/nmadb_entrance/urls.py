@@ -1,20 +1,20 @@
 from django.conf.urls.defaults import patterns, url
-from django.views.generic.simple import direct_to_template
 
 from nmadb_entrance.config import info
+from nmadb_entrance.views import DirectTemplateView
 
 
 urlpatterns = patterns(
     'nmadb_entrance.views',
 
     url(r'^$', 'index', name='nmadb-entrance-index',),
-    url(r'^started/$', direct_to_template,
-        {
-            'template': 'nmadb-entrance/started.html',
-            'extra_context': {
+    url(r'^started/$',
+        DirectTemplateView.as_view(
+            template_name='nmadb-entrance/started.html',
+            extra_context={
                 'info': info,
                 },
-            },
+            ),
         name='nmadb-entrance-started'),
     url((
         r'student/'
