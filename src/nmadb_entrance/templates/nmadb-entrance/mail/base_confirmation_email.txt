@@ -27,7 +27,7 @@ tobulėti bei išmokti dar daugiau!
 {% endif %}
 {{ info.address_multiline }}
 
-4.  Taip pat iki 2012-09-20 nepamiršk sumokėti {{ info.entrance_fee }} Lt registracijos 
+4.  Taip pat iki {{ info.pupil_pay_deadline|date:"Y-m-d" }} nepamiršk sumokėti {{ info.entrance_fee }} Lt registracijos 
     mokesčio:
     
     {{ info.firm_title }}
@@ -43,10 +43,10 @@ tobulėti bei išmokti dar daugiau!
     reikalinga informacija.
 
 Nuoroda į Tavo anketos formą:
-http://{{ current_site }}{% url nmadb-entrance-add-pupil-info base_info.uuid %}
+http://{{ current_site }}{% url 'nmadb-entrance-add-pupil-info' base_info.uuid %}
 
 Nuoroda į mokytojo rekomendacijos formą: 
-http://{{ current_site }}{% url nmadb-entrance-add-teacher-info base_info.uuid %}
+http://{{ current_site }}{% url 'nmadb-entrance-add-teacher-info' base_info.uuid %}
 
 Iki greito,
 NMA komanda
