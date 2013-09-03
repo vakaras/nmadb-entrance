@@ -20,8 +20,8 @@ def index(request):
     if check_condition(u'registration-ended'):
         return shortcuts.render(
                 request,
-                template='nmadb-entrance/ended.html',
-                extra_context={
+                'nmadb-entrance/ended.html',
+                {
                     'info': info,
                     },
                 )
@@ -75,8 +75,8 @@ def add_pupil_info(request, uuid):
     else:
         return shortcuts.render(
                 request,
-                template='nmadb-entrance/pupil-form-filled.html',
-                extra_context={
+                'nmadb-entrance/pupil-form-filled.html',
+                {
                     'base_info': base_info,
                     'info': info,
                     },
@@ -150,8 +150,8 @@ def add_teacher_info(request, uuid):
     else:
         return shortcuts.render(
                 request,
-                template='nmadb-entrance/teacher-form-filled.html',
-                extra_context={
+                'nmadb-entrance/teacher-form-filled.html',
+                {
                     'base_info': base_info,
                     'info': info,
                     }
@@ -199,8 +199,8 @@ def add_director_info(request, uuid):
     else:
         return shortcuts.render(
                 request,
-                template='nmadb-entrance/director-form-filled.html',
-                extra_context={
+                'nmadb-entrance/director-form-filled.html',
+                {
                     'base_info': base_info,
                     'info': info,
                     }
