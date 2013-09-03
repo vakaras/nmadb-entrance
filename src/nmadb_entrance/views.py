@@ -42,6 +42,7 @@ def index(request):
             if check_condition('vip', base_info=base_info):
                 # TODO
                 #notify.delay_registration(base_info)
+                raise Exception("Not implemented.")
                 return shortcuts.redirect(
                         'nmadb-entrance-delay-registration')
             else:
@@ -72,7 +73,7 @@ def add_pupil_info(request, uuid):
     except models.PupilInfo.DoesNotExist:
         pass
     else:
-        return direct_to_template(
+        return shortcuts.render(
                 request,
                 template='nmadb-entrance/pupil-form-filled.html',
                 extra_context={
@@ -147,7 +148,7 @@ def add_teacher_info(request, uuid):
     except models.TeacherInfo.DoesNotExist:
         pass
     else:
-        return direct_to_template(
+        return shortcuts.render(
                 request,
                 template='nmadb-entrance/teacher-form-filled.html',
                 extra_context={
@@ -196,7 +197,7 @@ def add_director_info(request, uuid):
     except models.DirectorInfo.DoesNotExist:
         pass
     else:
-        return direct_to_template(
+        return shortcuts.render(
                 request,
                 template='nmadb-entrance/director-form-filled.html',
                 extra_context={
