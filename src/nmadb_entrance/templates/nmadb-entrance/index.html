@@ -1,5 +1,131 @@
-{% extends "nmadb-entrance/form.html" %}
+{% comment %} vim: ft=htmldjango
+{% endcomment %}
 
+{% load bootstrap_toolkit %}
+
+{# FIXME: Internationalize. #}
+<!DOCTYPE HTML>
+<html lang="lt">
+    <head>
+        <title>
+            {% block title %}
+            Registracija į {{ info.year }} metų NMA atranką
+            {% endblock %}
+        </title>
+        <meta 
+            http-equiv="Content-Type"
+            content="text/html; charset=utf-8" />
+        {% comment %}
+        <link
+            rel="stylesheet" type="text/css"
+            href="{{ STATIC_URL }}default.css" />
+        <link
+            rel="stylesheet"
+            href="//netdna.bootstrapcdn.com/bootstrap/2.3.2-wip/css/bootstrap.min.css"
+            />
+        <script
+            src="//netdna.bootstrapcdn.com/bootstrap/2.3.2-wip/js/bootstrap.min.js"
+            >
+        </script>
+        {% endcomment %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="{{ STATIC_URL }}/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+            media="screen" />
+        <link
+            href="{{ STATIC_URL }}/bootstrap/css/bootstrap-responsive.min.css"
+            rel="stylesheet"
+            media="screen" />
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script
+            src="{{ STATIC_URL }}/bootstrap/js/bootstrap.min.js"
+          >
+        </script>
+        {% comment %}
+        {% endcomment %}
+    </head>
+    <body>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="span12">
+            <h1>Nacionalinė moksleivių akademija kviečia!</h1>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="span6">
+            <p>
+              Mielas mokiny,<br />
+
+              Nacionalinė moksleivių akademija (NMA) kviečia TAVE
+              registruotis bei aktyviai dalyvauti unikalioje NMA nuotolinio
+              ugdymo programos atrankoje, jeigu:
+            </p>
+
+            <ul>
+              <li>
+              esi 7–10 klasių mokinys iš bet kurios Lietuvos mokyklos;
+              </li>
+              <li>
+              tau patinka, domiesi ir nori daugiau sužinoti bei tobulėti
+              bent vienoje iš šių sričių: (9–10-okams) biochemijos,
+              informatikos, ekonomikos, istorijos, fizikos,
+              (10-okams) chemijos, (7–10-okams) matematikos ir lietuvių
+              filologijos;
+              </li>
+              <li>
+              esi gabus, talentingas, išradingas, aktyvus, linksmas,
+              mėgstantis bendrauti bei susipažinti su naujais, įdomiais
+              žmonėmis;
+              </li>
+              <li>
+              tau tavo mokyklos koridoriai pasidarė per „siauri“;
+              </li>
+              <li>
+              turi svajonę užsiauginti sparnus bei išmokti juos plačiai
+              išskleisti ir apskrieti visą pasaulį.
+              </li>
+            </ul>
+          </div>
+
+          <div class="span6">
+            <form action="" method="POST" class="form-horizontal">
+              {% csrf_token %}
+              <fieldset>
+                {#{{ form|as_bootstrap }}#}
+                {% bootstrap_form form layout="horizontal" %}
+              </fieldset>
+              <div class="control-group">
+                <div class="controls">
+                  <button type="submit" class="btn btn-primary">Įrašyti</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </body>
+</html>
+
+    {% comment %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form|as_bootstrap }}
+
+
+  {{ form.non_field_errors }}
+  {% block form-content %}{% endblock %}
+  {% block form-buttons %}
+  <input class="form-button" type="submit" value="Įrašyti" />
+  {% endblock %}
+</form>
 {% block static-info %}
 <p>
   Mielas mokiny,<br />
@@ -37,6 +163,7 @@
 
 {% block form-content %}
 <fieldset>
+
   <ol class="form">
       {# FIXME: Wet code. #}
       <li>
@@ -87,3 +214,4 @@
   </ol>
 </fieldset>
 {% endblock %}
+{% endcomment %}

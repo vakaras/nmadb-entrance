@@ -1,5 +1,7 @@
 {% extends "nmadb-entrance/base.html" %}
 
+{% load bootstrap_toolkit %}
+
 {% block content %}
 
 <div class="form-error">
@@ -20,7 +22,11 @@
 </p>
 
 {% block form %}
-<form action="" method="POST">{% csrf_token %}
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form|as_bootstrap }}
+
+
   {{ form.non_field_errors }}
   {% block form-content %}{% endblock %}
   {% block form-buttons %}
