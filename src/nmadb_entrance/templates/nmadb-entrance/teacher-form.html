@@ -22,11 +22,13 @@
         {{ form.last_name.label_tag }}:
         {{ form.last_name }}
         </li>
+        {% comment %}
         <li>
         {{ form.address.errors }}
         {{ form.address.label_tag }}:
         {{ form.address }}
         </li>
+        {% endcomment %}
         <li>
         {{ form.phone_number.errors }}
         Kontaktinio telefono numeris:
@@ -82,6 +84,7 @@
         </li>
     </ol>
 </fieldset>
+{% comment %}
 <fieldset>
     <p>Prašome įvertinti mokinį pagal šiuos kriterijus:</p>
     <ol class="form">
@@ -127,6 +130,7 @@
         </li>
     </ol>
 </fieldset>
+{% endcomment %}
 <fieldset>
     <p>
         Prašome pateikti komentarus ar pastebėjimus apie

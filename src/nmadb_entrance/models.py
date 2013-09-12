@@ -205,10 +205,10 @@ class TeacherInfo(models.Model):
             verbose_name=_(u'last name'),
             )
 
-    address = models.CharField(
-            max_length=90,
-            verbose_name=_(u'contact address'),
-            )
+    #address = models.CharField(
+            #max_length=90,
+            #verbose_name=_(u'contact address'),
+            #)
 
     phone_number = utils_models.PhoneNumberField(
             verbose_name=_(u'contact phone'),
@@ -250,45 +250,45 @@ class TeacherInfo(models.Model):
             verbose_name=_(u'socially supported'),
             )
 
-    systemic_thinking_ability = models.IntegerField(
-            choices=ABILITY_CHOICES,
-            verbose_name=_(u'systemic thinking ability'),
-            )
+    #systemic_thinking_ability = models.IntegerField(
+            #choices=ABILITY_CHOICES,
+            #verbose_name=_(u'systemic thinking ability'),
+            #)
 
-    analytical_thinking_ability = models.IntegerField(
-            choices=ABILITY_CHOICES,
-            verbose_name=_(u'analytical thinking ability'),
-            )
+    #analytical_thinking_ability = models.IntegerField(
+            #choices=ABILITY_CHOICES,
+            #verbose_name=_(u'analytical thinking ability'),
+            #)
 
-    deductive_thinking_ability = models.IntegerField(
-            choices=ABILITY_CHOICES,
-            verbose_name=_(u'deductive thinking ability'),
-            )
+    #deductive_thinking_ability = models.IntegerField(
+            #choices=ABILITY_CHOICES,
+            #verbose_name=_(u'deductive thinking ability'),
+            #)
 
-    self_studying_ability = models.IntegerField(
-            choices=ABILITY_CHOICES,
-            verbose_name=_(u'self studying ability'),
-            )
+    #self_studying_ability = models.IntegerField(
+            #choices=ABILITY_CHOICES,
+            #verbose_name=_(u'self studying ability'),
+            #)
 
-    team_working_ability = models.IntegerField(
-            choices=ABILITY_CHOICES,
-            verbose_name=_(u'team working ability'),
-            )
+    #team_working_ability = models.IntegerField(
+            #choices=ABILITY_CHOICES,
+            #verbose_name=_(u'team working ability'),
+            #)
 
-    oral_expression_ability = models.IntegerField(
-            choices=ABILITY_CHOICES,
-            verbose_name=_(u'oral expression ability'),
-            )
+    #oral_expression_ability = models.IntegerField(
+            #choices=ABILITY_CHOICES,
+            #verbose_name=_(u'oral expression ability'),
+            #)
 
-    written_expression_ability = models.IntegerField(
-            choices=ABILITY_CHOICES,
-            verbose_name=_(u'written expression ability'),
-            )
+    #written_expression_ability = models.IntegerField(
+            #choices=ABILITY_CHOICES,
+            #verbose_name=_(u'written expression ability'),
+            #)
 
-    receptivity_ability = models.IntegerField(
-            choices=ABILITY_CHOICES,
-            verbose_name=_(u'receptivity ability'),
-            )
+    #receptivity_ability = models.IntegerField(
+            #choices=ABILITY_CHOICES,
+            #verbose_name=_(u'receptivity ability'),
+            #)
 
     comment = models.TextField(
             verbose_name=_(u'comment'),

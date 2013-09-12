@@ -192,7 +192,7 @@ Informacija apie rekomendaciją parašiusį asmenį:'''
 
     teacher_data = [
             [u'Vardas, pavardė:', getter('first_name', 'last_name')],
-            [u'Adresas kontaktams:', getter('address')],
+            #[u'Adresas kontaktams:', getter('address')],
             [u'Kontaktinis telefonas:', getter('phone_number')],
             [u'El. pašto adresas (BŪTINAS!):', getter('email')],
             [u'Mokykla:', base_info.school.title],
@@ -269,36 +269,36 @@ def generate_teacher_hand_form(base_info):
 
     content.append(Spacer(1, 0.3*units.cm))
 
-    content.append(Paragraph((u'''
-Prašome įvertinti mokinį(-ę) pagal šiuos kriterijus
-(pažymėkite atitinkamą langelį <font name="Ubuntu-B">X</font>):'''
-                              ).format(base_info), styles['Normal']))
+    #content.append(Paragraph((u'''
+#Prašome įvertinti mokinį(-ę) pagal šiuos kriterijus
+#(pažymėkite atitinkamą langelį <font name="Ubuntu-B">X</font>):'''
+                              #).format(base_info), styles['Normal']))
 
-    content.append(Spacer(1, 0.3*units.cm))
+    #content.append(Spacer(1, 0.3*units.cm))
 
-    p = lambda x: Paragraph(x, styles['TableCellCenter'])
-    evaluations = [
-            u'Puikiai', u'Labai gerai', u'Gerai',
-            u'Pakan-<br />kamai', u'Silpnai',
-            u'Nebuvo galimybės įvertinti',
-            ]
-    evallen = len(evaluations)
-    abilities = Table([
-        [u''] + [p(evaluation) for evaluation in evaluations],
-        [p(u'Sisteminio mąstymo gebėjimai')] + [u''] * evallen,
-        [p(u'Analitinio mąstymo gebėjimai')] + [u''] * evallen,
-        [p(u'Dedukcinio mąstymo gebėjimai')] + [u''] * evallen,
-        [p(u'Mokinio gebėjimas mokytis savarankiškai')] + [u''] * evallen,
-        [p(u'Mokinio gebėjimas dirbti komandoje')] + [u''] * evallen,
-        [p(u'Gebėjimas reikšti mintis žodžiu')] + [u''] * evallen,
-        [p(u'Gebėjimas reikšti mintis raštu')] + [u''] * evallen,
-        [p(u'Mokinio imlumas mokslui (mokslumas)')] + [u''] * evallen,
-        ],
-        colWidths=[4.5 * units.cm] + [2.2 * units.cm] * evallen)
-    abilities.setStyle(table_styles['Normal'])
-    content.append(abilities)
+    #p = lambda x: Paragraph(x, styles['TableCellCenter'])
+    #evaluations = [
+            #u'Puikiai', u'Labai gerai', u'Gerai',
+            #u'Pakan-<br />kamai', u'Silpnai',
+            #u'Nebuvo galimybės įvertinti',
+            #]
+    #evallen = len(evaluations)
+    #abilities = Table([
+        #[u''] + [p(evaluation) for evaluation in evaluations],
+        #[p(u'Sisteminio mąstymo gebėjimai')] + [u''] * evallen,
+        #[p(u'Analitinio mąstymo gebėjimai')] + [u''] * evallen,
+        #[p(u'Dedukcinio mąstymo gebėjimai')] + [u''] * evallen,
+        #[p(u'Mokinio gebėjimas mokytis savarankiškai')] + [u''] * evallen,
+        #[p(u'Mokinio gebėjimas dirbti komandoje')] + [u''] * evallen,
+        #[p(u'Gebėjimas reikšti mintis žodžiu')] + [u''] * evallen,
+        #[p(u'Gebėjimas reikšti mintis raštu')] + [u''] * evallen,
+        #[p(u'Mokinio imlumas mokslui (mokslumas)')] + [u''] * evallen,
+        #],
+        #colWidths=[4.5 * units.cm] + [2.2 * units.cm] * evallen)
+    #abilities.setStyle(table_styles['Normal'])
+    #content.append(abilities)
 
-    content.append(Spacer(1, 0.5*units.cm))
+    #content.append(Spacer(1, 0.5*units.cm))
 
     content.append(Paragraph((
         u'''
@@ -509,7 +509,7 @@ Informacija apie rekomendaciją parašiusį asmenį:'''
 
     director_data = [
             [u'Vardas, pavardė:', getter('first_name', 'last_name')],
-            [u'Adresas kontaktams:', getter('address')],
+            #[u'Adresas kontaktams:', getter('address')],
             [u'Kontaktinis telefonas:', getter('phone_number')],
             [u'El. pašto adresas:', getter('email')],
             [u'Mokykla:', base_info.school.title],
@@ -595,29 +595,29 @@ def generate_teacher_filled_form(base_info, teacher_info):
 
     content.append(Spacer(1, 0.3*units.cm))
 
-    content.append(Paragraph(
-        u'Prašome įvertinti mokinį(-ę) pagal šiuos kriterijus:',
-        styles['Normal']))
+    #content.append(Paragraph(
+        #u'Prašome įvertinti mokinį(-ę) pagal šiuos kriterijus:',
+        #styles['Normal']))
 
-    content.append(Spacer(1, 0.3*units.cm))
+    #content.append(Spacer(1, 0.3*units.cm))
 
-    abilities = Table([
-        [
-            Paragraph(
-                teacher_info._meta.get_field(field).verbose_name + u':',
-                styles['Normal']),
-            Paragraph(
-                getattr(teacher_info, 'get_' + field + '_display')(),
-                styles['Normal']),]
-        for field in u'''
-        systemic_thinking_ability analytical_thinking_ability
-        deductive_thinking_ability self_studying_ability
-        team_working_ability oral_expression_ability
-        written_expression_ability receptivity_ability
-        '''.split()
-        ])
-    abilities.setStyle(table_styles['Normal'])
-    content.append(abilities)
+    #abilities = Table([
+        #[
+            #Paragraph(
+                #teacher_info._meta.get_field(field).verbose_name + u':',
+                #styles['Normal']),
+            #Paragraph(
+                #getattr(teacher_info, 'get_' + field + '_display')(),
+                #styles['Normal']),]
+        #for field in u'''
+        #systemic_thinking_ability analytical_thinking_ability
+        #deductive_thinking_ability self_studying_ability
+        #team_working_ability oral_expression_ability
+        #written_expression_ability receptivity_ability
+        #'''.split()
+        #])
+    #abilities.setStyle(table_styles['Normal'])
+    #content.append(abilities)
 
     content.append(Spacer(1, 0.5*units.cm))
 
