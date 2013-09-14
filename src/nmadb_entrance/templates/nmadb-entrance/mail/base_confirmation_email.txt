@@ -21,7 +21,7 @@ tobulėti bei išmokti dar daugiau!
 3.  Prašymą, mokytojo rekomendaciją, {{ info.year|add:"-1" }}/{{ info.year }}
     mokslo metų metinius
 {% if base_info.section.title == "Lietuvių filologija" %}    įvertinimus su parašais bei tavo nuomone geriausiai tave atspindintį
-    darbą iki {{ info.forms_send_deadline|date:"Y-m-d" }} turi atsiųsti arba atnešti adresu:
+    darbą iki {{ info.forms_send_deadline|date:"Y-m-d" }} turi atsiųsti adresu:
     {% else %}    įvertinimus su parašais iki {{ info.forms_send_deadline|date:"Y-m-d" }} turi atsiųsti arba
     atnešti adresu:
 {% endif %}
@@ -34,9 +34,6 @@ tobulėti bei išmokti dar daugiau!
     {{ info.firm_code }}
     {{ info.bank_account }}
     Įmoka už: {{ base_info.first_name }} {{ base_info.last_name }}, registracijos mokestis
-
-    Jei esi iš socialiai remtinos šeimos ir tai pažymėta mokytojo
-    rekomendacijoje, tuomet mokesčio mokėti nereikia.
 
 5.  {{ info.success_notification_deadline|date:"Y-m-d" }} sulauksi el. laiško
     su žinute apie tai, ar patekai į antrą atrankos etapą, ir visa kita
