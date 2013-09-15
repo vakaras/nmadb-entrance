@@ -2,8 +2,8 @@
 
 {% block footer %}
 P. S. Jei kils neaiškumų arba norėsite paklausti, būtinai rašykite
-{{ info.manager_name_dative }} el. pašto adresu {{ info.manager_email }} 
-arba skambinkite {{ info.manager_phone }}.
+{{ info.manager_name_dative }} elektroninio pašto adresu {{ info.manager_email }} 
+arba skambinkite telefono numeriu {{ info.manager_phone }}.
 
 Taip pat, jei pastebėsite registracijos sistemos klaidą, būtume
 dėkingi, jei apie ją kuo skubiau praneštumėte elektroninio pašto
