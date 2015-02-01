@@ -228,6 +228,7 @@ class TeacherInfo(models.Model):
     class_master = models.BooleanField(
             verbose_name=_(u'class master'),
             blank=True,
+            default=False,
             )
 
     subject_teacher = models.CharField(
@@ -248,6 +249,7 @@ class TeacherInfo(models.Model):
 
     social = models.BooleanField(
             verbose_name=_(u'socially supported'),
+            default=False,
             )
 
     #systemic_thinking_ability = models.IntegerField(
@@ -345,6 +347,7 @@ class DirectorInfo(models.Model):
 
     social = models.BooleanField(
             verbose_name=_(u'socially supported'),
+            default=False,
             )
 
     comment = models.TextField(
@@ -400,30 +403,35 @@ class RegistrationInfo(BaseInfo):
             verbose_name=_(u'payed'),
             blank=True,
             help_text=_(u'True, if pupil have payed registration fee.'),
+            default=False,
             )
 
     pupil_form_received = models.BooleanField(
             verbose_name=_(u'pupil received'),
             help_text=_(u'True, if pupil form was received.'),
             blank=True,
+            default=False,
             )
 
     teacher_form_received = models.BooleanField(
             verbose_name=_(u'teacher received'),
             help_text=_(u'True, if teacher form was received.'),
             blank=True,
+            default=False,
             )
 
     director_form_received = models.BooleanField(
             verbose_name=_(u'director received'),
             help_text=_(u'True, if director form was received.'),
             blank=True,
+            default=False,
             )
 
     marks_form_received  = models.BooleanField(
             verbose_name=_(u'marks received'),
             help_text=_(u'True, if pupil marks form were received.'),
             blank=True,
+            default=False,
             )
 
     comment = models.TextField(
@@ -434,6 +442,7 @@ class RegistrationInfo(BaseInfo):
     done  = models.BooleanField(
             verbose_name=_(u'done'),
             blank=True,
+            default=False,
             )
 
     testing_location = models.ForeignKey(

@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import patterns, url
 
 from nmadb_entrance.config import info
 from nmadb_entrance.views import DirectTemplateView

@@ -12,7 +12,7 @@ from nmadb_entrance.config import info
 
 
 @render_to('nmadb-entrance/index.html')
-@transaction.commit_on_success
+@transaction.atomic
 def index(request):
     """ Shows index page.
     """
@@ -61,7 +61,7 @@ def index(request):
 
 
 @render_to('nmadb-entrance/pupil-form.html')
-@transaction.commit_on_success
+@transaction.atomic
 def add_pupil_info(request, uuid):
     """ Shows form for pupil.
     """
@@ -136,7 +136,7 @@ def add_pupil_info(request, uuid):
 
 
 @render_to('nmadb-entrance/teacher-form.html')
-@transaction.commit_on_success
+@transaction.atomic
 def add_teacher_info(request, uuid):
     """ Shows form for teacher.
     """
@@ -185,7 +185,7 @@ def add_teacher_info(request, uuid):
 
 
 @render_to('nmadb-entrance/director-form.html')
-@transaction.commit_on_success
+@transaction.atomic
 def add_director_info(request, uuid):
     """ Shows form for director.
     """

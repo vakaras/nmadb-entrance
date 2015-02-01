@@ -25,7 +25,8 @@ reportlab.rl_config.warnOnMissingFontGlyphs = 0
 # Register fonts:
 for font_type in ('R', 'B', 'I', 'BI'):
     font_name = 'Ubuntu-' + font_type
-    path = os.path.join(settings.STATIC_ROOT, 'fonts', font_name + '.ttf')
+    path = os.path.join(
+            settings.PROJECT_DIR, 'static', 'fonts', font_name + '.ttf')
     pdfmetrics.registerFont(ttfonts.TTFont(font_name, path))
 
 
