@@ -26,9 +26,9 @@ tobulėti bei išmokti dar daugiau!
 {% endif %}
 {{ info.address_multiline }}
 
-4.  Taip pat iki {{ info.pupil_form_deadline|date:"Y-m-d" }} nepamiršk sumokėti {{ info.entrance_fee }} Lt registracijos 
+4.  Taip pat iki {{ info.pupil_form_deadline|date:"Y-m-d" }} nepamiršk sumokėti {{ info.entrance_fee }} € registracijos
     mokesčio:
-    
+
     {{ info.firm_title }}
     {{ info.firm_code }}
     {{ info.bank_account }}
@@ -39,7 +39,7 @@ tobulėti bei išmokti dar daugiau!
 Nuoroda į Tavo anketos formą:
 http://{{ current_site }}{% url 'nmadb-entrance-add-pupil-info' base_info.uuid %}
 
-Nuoroda į mokytojo rekomendacijos formą: 
+Nuoroda į mokytojo rekomendacijos formą:
 http://{{ current_site }}{% url 'nmadb-entrance-add-teacher-info' base_info.uuid %}
 
 Iki greito,
