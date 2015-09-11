@@ -6,14 +6,14 @@ Mielas mokiny,
 džiaugiamės, kad nori prisijungti prie gausios NMA bendruomenės ir
 tobulėti bei išmokti dar daugiau!
 
-Žemiau rasi dvi nuorodas bei prisegtą vieną formą:
+Žemiau rasi dvi nuorodas bei vieną pridėtą formą:
 
-1.  Nuoroda į Tavo prašymo formą, kurią turi iki {{ info.pupil_form_deadline|date:"Y-m-d" }}
+1.  Nuorodą į Tavo prašymo formą, kurią turi iki {{ info.pupil_form_deadline|date:"Y-m-d" }}
     užpildyti elektroniniu būdu, atsispausdinti ir pasirašyti.
 
-2.  Nuorodą į mokytojo rekomendacijos formą bei prisegtą formą pildymui
+2.  Nuorodą į mokytojo rekomendacijos formą bei pridėtą formą pildymui
     ranka. Gali persiųsti nuorodą mokytojui, kad jis užpildytų
-    formą elektroniniu būdu arba atspausdinti prisegtą formą ir ją
+    formą elektroniniu būdu, arba atspausdinti pridėtą formą ir ją
     pateikti mokytojui. Geriausiai būtų, jeigu rekomendaciją parašytų to dalyko
     mokytojas, į kurią sekciją ketini stoti. Jei šiais metais pakeitei mokyklą,
     gali kreiptis rekomendacijos į buvusios mokyklos mokytoją.
